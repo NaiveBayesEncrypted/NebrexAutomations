@@ -16,11 +16,15 @@
   <meta name="twitter:title" content="Privacy Policy | Nebrex Automations Calgary">
   <meta name="twitter:description" content="How Nebrex Automations collects, uses, and protects information for Calgary contractor operations.">
   <meta name="twitter:image" content="https://nebrex.ca/og-image.png">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230A0A0F'/%3E%3Cg fill='none' stroke='%23F0EDE8' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 76V24h8l22 30V24h8v52h-8L26 46v30h-8z'/%3E%3Cpath d='M60 30l22 40'/%3E%3Cpath d='M82 30L60 70'/%3E%3C/g%3E%3C/svg%3E">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Michroma&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="nav-solutions.js" defer></script>
+  <script src="nav-main.js" defer></script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,19 +44,44 @@
   </script>
 </head>
 <body>
+  <div class="ambient-lines" aria-hidden="true"></div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
     <div class="wrap">
       <nav role="navigation" aria-label="Main navigation">
         <a href="index.html" class="logo" aria-label="Nebrex Automations - back to home">
+          <span class="logo-mark" aria-hidden="true"><span class="mark-n">N</span><span class="mark-x">X</span></span>
           <span class="logo-text">
             <span class="logo-word">NEBRE<span class="logo-x">X</span></span>
             <span class="logo-sub">AUTOMATIONS</span>
           </span>
         </a>
-        <div class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="index.html#contact">Contact</a>
+
+        <button class="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+          <a href="services.html">Templates</a>
+          <div class="nav-dropdown" id="solutionsDropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+              Solutions
+            </button>
+            <div class="nav-dropdown-menu nav-solutions-menu" role="menu" aria-label="Solutions" data-solutions-menu="root"></div>
+          </div>
+          <a href="results.html">Results</a>
+          <a href="solutions/marketing/index.html#enterprise">Enterprise</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html" class="nav-mobile-only nav-mobile-secondary">Contact Sales</a>
+          <a href="contact.html" class="nav-mobile-only nav-mobile-primary">Get Started</a>
+        </div>
+
+        <div class="nav-actions">
+          <a href="contact.html" class="btn btn-outline nav-secondary">Contact Sales</a>
+          <a href="contact.html" class="btn btn-primary nav-cta">Get Started</a>
         </div>
       </nav>
     </div>
@@ -60,23 +89,24 @@
 
   <main class="wrap" id="main-content">
     <section>
-      <h1 style="font-size:40px;">Privacy Policy</h1>
+      <div class="section-title">Legal</div>
+      <h1>Privacy Policy</h1>
       <p class="section-sub">Last updated: February 17, 2026</p>
 
-      <div class="offer" style="margin-top:30px;">
+      <div class="offer">
         <h3>1. Information We Collect</h3>
         <p>When you contact us through our website form, we collect your name, business name, email address, and any additional details you provide. We do not use cookies or tracking scripts on this website.</p>
 
-        <h3 style="margin-top:24px;">2. How We Use Your Information</h3>
+        <h3>2. How We Use Your Information</h3>
         <p>We use the information you provide solely to respond to your inquiry, schedule demos, and deliver our services. We do not sell or share your personal information with third parties.</p>
 
-        <h3 style="margin-top:24px;">3. Data Storage</h3>
+        <h3>3. Data Storage</h3>
         <p>Your data is stored securely and retained only as long as necessary to provide our services or as required by Canadian law.</p>
 
-        <h3 style="margin-top:24px;">4. Your Rights (PIPEDA)</h3>
+        <h3>4. Your Rights (PIPEDA)</h3>
         <p>Under Canada's Personal Information Protection and Electronic Documents Act (PIPEDA), you have the right to access, correct, or request deletion of your personal information. Contact us at <a href="mailto:hello@nebrex.ca" style="color:var(--ink);text-decoration:underline;">hello@nebrex.ca</a> to exercise these rights.</p>
 
-        <h3 style="margin-top:24px;">5. Contact</h3>
+        <h3>5. Contact</h3>
         <p>For privacy-related questions, email <a href="mailto:hello@nebrex.ca" style="color:var(--ink);text-decoration:underline;">hello@nebrex.ca</a> or call <a href="tel:+18257339236" style="color:var(--ink);text-decoration:underline;">(825) 733-9236</a>.</p>
       </div>
     </section>
@@ -86,7 +116,7 @@
     <div class="wrap">
       <p>&copy; 2026 Nebrex Automations. All rights reserved.</p>
       <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="index.html#contact">Contact</a>
+        <a href="contact.html">Contact</a>
         <span aria-hidden="true">|</span>
         <a href="privacy.html">Privacy Policy</a>
         <span aria-hidden="true">|</span>
@@ -96,5 +126,6 @@
   </footer>
 </body>
 </html>
+
 
 
