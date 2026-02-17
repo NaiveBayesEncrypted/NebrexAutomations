@@ -1,0 +1,33 @@
+/* TEAM */
+Company: Nebrex Automations
+Focus: AI automation for Calgary contractor operations
+Website: https://nebrex.ca
+Contact: hello@nebrex.ca
+Phone: +1-825-733-9236
+
+/* BRAND */
+Brand line: Nebrex
+Descriptor: AI Automation for Canadian SMB Operations
+Tone: Confident, precise, practical
+Core promise: Automate repetitive work, improve response speed, and run operations with fewer bottlenecks.
+
+/* OFFER */
+Core pricing (CAD):
+- Starter: $300/mo
+- Growth: $700/mo
+- Full Suite: $1,100/mo
+- Enterprise: from $2,500/mo
+
+Guarantee:
+90-day performance guarantee tied to agreed outcomes.
+
+/* LOCATION */
+Primary market: Calgary, Alberta, Canada
+
+/* TECH */
+Stack: Static HTML/CSS/JS
+Sitemap: https://nebrex.ca/sitemap.xml
+Robots: https://nebrex.ca/robots.txt
+
+/* LAST UPDATED */
+Date: 2026-02-17

@@ -37,7 +37,7 @@
         "description": "AI automation for Calgary contractor and home service operations.",
         "url": "https://nebrex.ca",
         "telephone": "+1-825-733-9236",
-        "email": "hello@nebrex.ca",
+        "email": "contact@nebrex.ca",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Calgary",
@@ -144,7 +144,7 @@
         <p>Nebrex Automations helps Calgary contractors automate lead response, booking, and follow-up to reduce bottlenecks and grow jobs.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="tel:+18257339236" aria-label="Call or text (825) 733-9236 to book a demo">Call/Text to Book Demo</a>
-          <a class="btn btn-outline" href="mailto:hello@nebrex.ca?subject=Nebrex%20Automations%20Demo%20Request">Email to Request Demo</a>
+          <a class="btn btn-outline" href="mailto:contact@nebrex.ca?subject=Nebrex%20Automations%20Demo%20Request">Email to Request Demo</a>
         </div>
       </div>
       <div class="hero-card">
@@ -240,21 +240,21 @@
           <h4>Operations Audit</h4>
           <p>10-minute leak report on missed calls, slow response windows, quote follow-up gaps, and booking friction.</p>
           <div class="card-cta">
-            <a class="btn btn-outline" href="mailto:hello@nebrex.ca?subject=AI%20Lead%20Audit%20Request">Request Audit</a>
+            <a class="btn btn-outline" href="mailto:contact@nebrex.ca?subject=AI%20Lead%20Audit%20Request">Request Audit</a>
           </div>
         </div>
         <div class="card">
           <h4>30-Day Pilot Build</h4>
           <p>Core workflow launch (lead response + booking + follow-up) to validate lead and booking improvement.</p>
           <div class="card-cta">
-            <a class="btn btn-outline" href="mailto:hello@nebrex.ca?subject=30-Day%20Pilot%20Request">Request Pilot</a>
+            <a class="btn btn-outline" href="mailto:contact@nebrex.ca?subject=30-Day%20Pilot%20Request">Request Pilot</a>
           </div>
         </div>
         <div class="card">
           <h4>Full System Rollout</h4>
           <p>End-to-end operational automation with reporting, optimization, and support for sustained growth.</p>
           <div class="card-cta">
-            <a class="btn btn-outline" href="mailto:hello@nebrex.ca?subject=Full%20Delivery%20Request">Talk Delivery</a>
+            <a class="btn btn-outline" href="mailto:contact@nebrex.ca?subject=Full%20Delivery%20Request">Talk Delivery</a>
           </div>
         </div>
       </div>
@@ -595,7 +595,7 @@
             <address>
               <p>Call or text for fastest response:</p>
               <p class="phone-number"><a href="tel:+18257339236">(825) 733-9236</a></p>
-              <p>Email: <a href="mailto:hello@nebrex.ca">hello@nebrex.ca</a></p>
+              <p>Email: <a href="mailto:contact@nebrex.ca">contact@nebrex.ca</a></p>
             </address>
             <p class="contact-note"><small>Include: business name, service type, and expected monthly lead volume.</small></p>
           </div>
@@ -605,8 +605,8 @@
               <label for="name" class="visually-hidden">Your name</label>
               <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
 
-              <label for="agency" class="visually-hidden">Business name</label>
-              <input type="text" id="agency" name="agency" placeholder="Business name" required autocomplete="organization">
+              <label for="business" class="visually-hidden">Business name</label>
+              <input type="text" id="business" name="business" placeholder="Business name" required autocomplete="organization">
 
               <label for="email" class="visually-hidden">Best email</label>
               <input type="email" id="email" name="email" placeholder="Best email" required autocomplete="email">
@@ -620,7 +620,7 @@
               <button class="btn btn-primary" type="submit">Send Request</button>
               <!-- FIX #26: Form feedback message -->
               <div class="form-status" id="formStatus" role="alert"></div>
-              <small>Submitting opens your email app. You can also email <a href="mailto:hello@nebrex.ca">hello@nebrex.ca</a> directly.</small>
+              <small>Submitting opens your email app. You can also email <a href="mailto:contact@nebrex.ca">contact@nebrex.ca</a> directly.</small>
             </form>
           </div>
         </div>
@@ -761,7 +761,7 @@
 
       var data = new FormData(form);
       var name = data.get('name');
-      var agency = data.get('agency');
+      var business = data.get('business');
       var email = data.get('email');
       var clients = data.get('clients');
       var notes = data.get('notes');
@@ -769,16 +769,16 @@
       var subject = encodeURIComponent('Demo Request - Nebrex Automations');
       var body = encodeURIComponent(
         'Name: ' + name + '\n' +
-        'Business: ' + agency + '\n' +
+        'Business: ' + business + '\n' +
         'Email: ' + email + '\n' +
         'Monthly lead volume: ' + clients + '\n' +
         'Notes: ' + notes
       );
 
-      formStatus.textContent = 'Opening your email client... If nothing happens, email hello@nebrex.ca directly with the details above.';
+      formStatus.textContent = 'Opening your email client... If nothing happens, email contact@nebrex.ca directly with the details above.';
       formStatus.className = 'form-status visible success';
 
-      window.location.href = 'mailto:hello@nebrex.ca?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:contact@nebrex.ca?subject=' + subject + '&body=' + body;
     });
 
     // ROI Calculator (FIX #27: zero-profit warning)
@@ -945,6 +945,7 @@
   </script>
 </body>
 </html>
+
 
 
 
