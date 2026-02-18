@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   function initMainNav() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
@@ -31,10 +31,23 @@
       }
     });
 
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 980) {
-        closeMobileMenu();
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (navLinks.classList.contains('nav-open')) {
+          closeMobileMenu();
+          mobileMenuBtn.focus();
+        }
       }
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (window.innerWidth > 980) {
+          closeMobileMenu();
+        }
+      }, 100);
     }, { passive: true });
   }
 
