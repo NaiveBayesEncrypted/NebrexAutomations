@@ -3,16 +3,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
 import PackageGrid from "../components/PackageGrid.astro";
 import { addOns } from "../data/packages";
+import { canonical, graph, ogImage, organizationSchema, serviceSchema } from "../data/seo";
+
+const pageUrl = canonical("/services.html");
 
 const meta = {
-  "title": "Services | Nebrex Automations",
-  "description": "Outcome-based website, AI chat, lead capture, follow-up, and automation systems for Calgary small businesses.",
-  "canonical": "https://nebrex.ca/services.html",
-  "ogTitle": "Services | Nebrex Automations",
+  "title": "Website & AI Automation Services for Calgary Businesses",
+  "description": "Outcome-based website, AI chat, lead capture, follow-up, and automation services for Calgary small businesses that need simpler systems.",
+  "canonical": pageUrl,
+  "ogTitle": "Website & AI Automation Services for Calgary Businesses",
   "ogDescription": "Simple growth systems for local businesses: better website, faster response, better follow-up, and less manual work.",
-  "ogUrl": "https://nebrex.ca/services.html",
-  "ogImage": "https://nebrex.ca/og-image.png",
-  "jsonLd": ""
+  "ogUrl": pageUrl,
+  "ogImage": ogImage,
+  "jsonLd": graph([
+    organizationSchema(),
+    serviceSchema("Website and AI automation services for Calgary small businesses", "Outcome-based website, AI chat, lead capture, follow-up, and automation systems for Calgary small businesses.", pageUrl)
+  ])
 };
 ---
 
@@ -49,6 +55,29 @@ const meta = {
       <div class="card"><h4>Better website</h4><p>Improve the first impression, explain your services clearly, and make it easier for customers to contact you.</p></div>
       <div class="card"><h4>Faster response</h4><p>Use chat, forms, alerts, and missed-call text back so more inquiries turn into real conversations.</p></div>
       <div class="card"><h4>Better follow-up</h4><p>Keep quotes, appointments, reviews, and customer updates moving without adding more manual work.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Use cases</div>
+    <h2>Built for common local-business workflows</h2>
+    <div class="grid-3">
+      <a class="card" href="/solutions/hvac/"><h4>HVAC companies</h4><p>Emergency call recovery, seasonal lead response, and quote follow-up.</p></a>
+      <a class="card" href="/solutions/plumbing/"><h4>Plumbing companies</h4><p>Missed-call text back, urgent intake, and review request workflows.</p></a>
+      <a class="card" href="/solutions/roofing/"><h4>Roofing companies</h4><p>Estimate request capture, storm demand intake, and follow-up.</p></a>
+      <a class="card" href="/solutions/electrical/"><h4>Electrical companies</h4><p>Job-type qualification, dispatch handoff, and customer updates.</p></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Service areas</div>
+    <h2>Calgary-first, with support for nearby businesses</h2>
+    <p class="section-sub">Nebrex is built around Calgary small businesses first, with practical website, lead response, and follow-up support for nearby communities.</p>
+    <div class="grid-3">
+      <a class="card" href="/locations/airdrie/"><h4>Airdrie</h4><p>Service-area clarity, faster inquiry response, and simple systems for growing local teams.</p></a>
+      <a class="card" href="/locations/cochrane/"><h4>Cochrane</h4><p>Local trust, mobile inquiry paths, and follow-up for quote-based businesses.</p></a>
+      <a class="card" href="/locations/okotoks/"><h4>Okotoks</h4><p>Website clarity, lead capture, and appointment or quote follow-up systems.</p></a>
+      <a class="card" href="/locations/chestermere/"><h4>Chestermere</h4><p>Local and Calgary-area positioning with chat, missed-call, and follow-up support.</p></a>
     </div>
   </section>
 

@@ -1,15 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { canonical, graph, localBusinessSchema, ogImage, organizationSchema } from "../data/seo";
+
+const pageUrl = canonical("/contact.html");
 
 const meta = {
-  "title": "Book a Call | Nebrex Automations",
-  "description": "Book a call with Nebrex to choose the right website, lead response, follow-up, or growth system for your local business.",
-  "canonical": "https://nebrex.ca/contact.html",
-  "ogTitle": "Book a Call | Nebrex Automations",
+  "title": "Book a Call with Nebrex | Calgary Small Business Systems",
+  "description": "Book a call with Nebrex to choose the right website, lead response, follow-up, or growth system for your Calgary business.",
+  "canonical": pageUrl,
+  "ogTitle": "Book a Call with Nebrex | Calgary Small Business Systems",
   "ogDescription": "Talk to Nebrex about a simple growth system for your Calgary small business.",
-  "ogUrl": "https://nebrex.ca/contact.html",
-  "ogImage": "https://nebrex.ca/og-image.png",
-  "jsonLd": ""
+  "ogUrl": pageUrl,
+  "ogImage": ogImage,
+  "jsonLd": graph([organizationSchema(), localBusinessSchema()])
 };
 ---
 

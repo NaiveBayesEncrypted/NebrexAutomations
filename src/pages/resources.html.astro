@@ -1,16 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
+import { canonical, graph, ogImage, organizationSchema, resourceArticles } from "../data/seo";
+
+const pageUrl = canonical("/resources.html");
 
 const meta = {
-  "title": "Resources | Nebrex Automations",
-  "description": "Guides for Calgary small businesses improving websites, lead response, follow-up, and customer communication.",
-  "canonical": "https://nebrex.ca/resources.html",
-  "ogTitle": "Resources | Nebrex Automations",
+  "title": "Small Business Growth Resources | Nebrex Calgary",
+  "description": "Practical guides for Calgary small businesses improving websites, lead response, AI chat, missed calls, follow-up, and automation.",
+  "canonical": pageUrl,
+  "ogTitle": "Small Business Growth Resources | Nebrex Calgary",
   "ogDescription": "Practical resources for local businesses that want better websites, faster replies, and better follow-up.",
-  "ogUrl": "https://nebrex.ca/resources.html",
-  "ogImage": "https://nebrex.ca/og-image.png",
-  "jsonLd": ""
+  "ogUrl": pageUrl,
+  "ogImage": ogImage,
+  "jsonLd": graph([organizationSchema()])
 };
 ---
 
@@ -37,14 +40,25 @@ const meta = {
     <div class="section-title">Featured Articles</div>
     <h2>Simple playbooks for better customer flow</h2>
     <div class="grid-3">
-      <div class="card"><h4>Website First Impression Checklist</h4><p>How to make your business easier to trust and contact.</p></div>
-      <div class="card"><h4>How Local Businesses Reply Faster</h4><p>A practical response flow for calls, forms, chat, and emails.</p></div>
-      <div class="card"><h4>Follow-Up System for Quotes and Inquiries</h4><p>Keep conversations moving without awkward manual chasing.</p></div>
-      <div class="card"><h4>AI Chat Without the Weirdness</h4><p>How to use chat in a simple, helpful, human-reviewed way.</p></div>
-      <div class="card"><h4>Google Business Profile Basics</h4><p>Support local trust with cleaner online presence signals.</p></div>
-      <div class="card"><h4>What to Automate First</h4><p>Start with the repetitive work that slows down customer communication.</p></div>
+      {resourceArticles.map((article) => (
+        <a class="card" href={`/resources/${article.slug}/`}>
+          <h4>{article.title}</h4>
+          <p>{article.description}</p>
+        </a>
+      ))}
     </div>
   </section>
 
-  <section><div class="cta-row"><CtaButton /></div></section>
+  <section>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <div class="section-title">Next step</div>
+          <h3>Want help applying this to your business?</h3>
+          <p class="section-sub">Book a call and we will help you choose the simplest Nebrex system to start with.</p>
+        </div>
+        <div class="cta-row"><CtaButton /></div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

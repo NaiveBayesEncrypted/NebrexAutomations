@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
+import { canonical, graph, ogImage, organizationSchema } from "../data/seo";
 
 const customerExamples = [
   {
@@ -95,15 +96,17 @@ const customerExamples = [
   }
 ];
 
+const pageUrl = canonical("/customers.html");
+
 const meta = {
-  "title": "Customers | Nebrex Automations",
-  "description": "Client examples showing how Nebrex improves websites, lead capture, follow-up, and customer flow for local businesses.",
-  "canonical": "https://nebrex.ca/customers.html",
-  "ogTitle": "Customers | Nebrex Automations",
+  "title": "Customer Examples & Proof | Nebrex Calgary",
+  "description": "Client examples showing how Nebrex improves websites, lead capture, follow-up, and customer flow for Calgary and Canadian businesses.",
+  "canonical": pageUrl,
+  "ogTitle": "Customer Examples & Proof | Nebrex Calgary",
   "ogDescription": "Real client examples from better websites, faster lead response, and stronger follow-up systems.",
-  "ogUrl": "https://nebrex.ca/customers.html",
-  "ogImage": "https://nebrex.ca/og-image.png",
-  "jsonLd": ""
+  "ogUrl": pageUrl,
+  "ogImage": ogImage,
+  "jsonLd": graph([organizationSchema()])
 };
 ---
 

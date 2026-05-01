@@ -1,16 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
+import { canonical, graph, ogImage, organizationSchema, serviceSchema } from "../data/seo";
+
+const pageUrl = canonical("/process.html");
 
 const meta = {
-  "title": "Process | Nebrex Automations",
-  "description": "Nebrex process for building simple website, lead response, follow-up, and automation systems for local businesses.",
-  "canonical": "https://nebrex.ca/process.html",
-  "ogTitle": "Process | Nebrex Automations",
+  "title": "How Nebrex Works | Calgary Website & Automation Process",
+  "description": "See how Nebrex audits, builds, launches, and improves simple website, lead response, and follow-up systems for Calgary businesses.",
+  "canonical": pageUrl,
+  "ogTitle": "How Nebrex Works | Calgary Website & Automation Process",
   "ogDescription": "A simple rollout path for Calgary small-business growth systems.",
-  "ogUrl": "https://nebrex.ca/process.html",
-  "ogImage": "https://nebrex.ca/og-image.png",
-  "jsonLd": ""
+  "ogUrl": pageUrl,
+  "ogImage": ogImage,
+  "jsonLd": graph([
+    organizationSchema(),
+    serviceSchema("Nebrex implementation process", "Audit, setup, launch, and optimization process for Calgary small-business website and automation systems.", pageUrl)
+  ])
 };
 ---
 

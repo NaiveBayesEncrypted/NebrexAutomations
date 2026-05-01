@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/fix-html-routes.mjs",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test:mobile": "playwright test tests/mobile-audit.spec.js"
   },
   "dependencies": {
     "astro": "^6.2.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
   }
 }

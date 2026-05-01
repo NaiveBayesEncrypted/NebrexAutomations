@@ -1,0 +1,86 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CtaButton from "../../../components/CtaButton.astro";
+import { articleSchema, canonical, graph, ogImage, organizationSchema, resourceArticles } from "../../../data/seo";
+
+export function getStaticPaths() {
+  return resourceArticles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article }
+  }));
+}
+
+const { article } = Astro.props;
+const pagePath = `/resources/${article.slug}/`;
+const pageUrl = canonical(pagePath);
+
+const meta = {
+  title: `${article.title} | Nebrex`,
+  description: article.description,
+  canonical: pageUrl,
+  ogTitle: article.title,
+  ogDescription: article.description,
+  ogUrl: pageUrl,
+  ogImage,
+  jsonLd: graph([organizationSchema(), articleSchema(article)])
+};
+---
+
+<BaseLayout {...meta}>
+  <article>
+    <section class="hero solutions-hero">
+      <div>
+        <div class="eyebrow">Resource</div>
+        <h1>{article.h1}</h1>
+        <p>{article.intro}</p>
+        <div class="cta-row"><CtaButton /></div>
+      </div>
+      <div class="hero-card">
+        <h3>Helpful next reads</h3>
+        <ul class="hero-list">
+          {article.links.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </div>
+    </section>
+
+    {article.sections.map((section) => (
+      <section>
+        <div class="section-title">Guide</div>
+        <h2>{section.heading}</h2>
+        <div class="offer">
+          {section.paragraphs.map((paragraph) => <p class="section-sub">{paragraph}</p>)}
+        </div>
+      </section>
+    ))}
+
+    <section>
+      <div class="section-title">Related Nebrex systems</div>
+      <h2>Keep building from here</h2>
+      <div class="grid-3">
+        {article.links.map((item) => (
+          <a class="card" href={item.href}>
+            <h4>{item.label}</h4>
+            <p>See how this guide connects to a practical Nebrex system for small businesses.</p>
+          </a>
+        ))}
+        <a class="card" href="/contact.html">
+          <h4>{article.cta}</h4>
+          <p>Talk through your current website, lead response, and follow-up gaps.</p>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="offer">
+        <div class="offer-grid">
+          <div>
+            <div class="section-title">Next step</div>
+            <h3>Want help applying this to your business?</h3>
+            <p class="section-sub">Nebrex can help you choose the simplest system to improve your website, lead response, or follow-up.</p>
+          </div>
+          <div class="cta-row"><CtaButton /></div>
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

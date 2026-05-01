@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
 import PackageGrid from "../components/PackageGrid.astro";
 import { addOns, packages } from "../data/packages";
+import { faqSchema, graph, localBusinessSchema, ogImage, organizationSchema } from "../data/seo";
 
 const growthPackage = packages.find((item) => item.slug === "growth");
 const heroPackages = growthPackage
@@ -22,6 +23,14 @@ const heroPackageSlides = heroPackages.map((item) => ({
   }))
 }));
 
+const homeFaqs = [
+  { question: "Is Nebrex only for contractors?", answer: "No. Nebrex is built for Calgary small businesses first, including service businesses, local shops, clinics, home services, and other teams that need better online presence, faster response, and stronger follow-up." },
+  { question: "Do I need to replace my current tools?", answer: "Usually no. We look at what you already use first and build the simplest system that improves your customer flow." },
+  { question: "Can I start with just a website?", answer: "Yes. Nebrex Presence is built for businesses that need a cleaner, more professional website before adding chat or automation." },
+  { question: "Will the AI chat sound robotic?", answer: "No. The goal is clear, helpful customer communication that fits your business. We keep the system practical and human-reviewed." },
+  { question: "What package should most businesses start with?", answer: "Nebrex Growth is the main fit when you want your website, lead response, and follow-up working together. If you only need one piece first, start with the simpler package that matches your biggest gap." }
+];
+
 const meta = {
   "title": "Websites and AI Systems for Calgary Small Businesses | Nebrex Automations",
   "description": "Nebrex helps Calgary small businesses improve their website, respond faster, and follow up better without adding more manual work.",
@@ -29,8 +38,8 @@ const meta = {
   "ogTitle": "Websites and AI Systems for Calgary Small Businesses | Nebrex Automations",
   "ogDescription": "Simple growth systems for better websites, faster response, lead capture, follow-up, and customer communication.",
   "ogUrl": "https://nebrex.ca/",
-  "ogImage": "https://nebrex.ca/og-image.png",
-  "jsonLd": "{\n    \"@context\":\"https://schema.org\",\n    \"@type\":\"LocalBusiness\",\n    \"name\":\"Nebrex Automations\",\n    \"url\":\"https://nebrex.ca\",\n    \"telephone\":\"+14032200220\",\n    \"email\":\"contact@nebrex.ca\",\n    \"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Calgary\",\"addressRegion\":\"AB\",\"addressCountry\":\"CA\"},\n    \"areaServed\":[\"Calgary\",\"Airdrie\",\"Cochrane\",\"Okotoks\",\"Chestermere\",\"Canada\"]\n  }"
+  "ogImage": ogImage,
+  "jsonLd": graph([organizationSchema(), localBusinessSchema(), faqSchema(homeFaqs)])
 };
 ---
 
@@ -135,6 +144,28 @@ const meta = {
     </section>
 
     <section>
+      <div class="section-title">Proof</div>
+      <h2>Built from real client work, not theory</h2>
+      <p class="section-sub">Nebrex uses the same system-first approach across websites, lead capture, follow-up, and practical automation work for real businesses.</p>
+      <div class="grid-3">
+        <a class="card" href="/customers.html"><h4>Client examples</h4><p>See how Nebrex has improved customer flow across service, health, accounting, AI, and real estate businesses.</p></a>
+        <a class="card" href="/about.html"><h4>About Nebrex</h4><p>Learn why Jahan built Nebrex around practical systems that local businesses can actually use.</p></a>
+        <a class="card" href="/pricing.html"><h4>Clear packages</h4><p>Compare Presence, Capture, Flow, Growth, and Partner without guessing where to start.</p></a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Use cases</div>
+      <h2>Start with a common local-business gap</h2>
+      <div class="grid-3">
+        <a class="card" href="/solutions/hvac/"><h4>HVAC lead response</h4><p>Capture emergency calls, seasonal demand, and quote follow-up more consistently.</p></a>
+        <a class="card" href="/solutions/plumbing/"><h4>Plumbing missed-call recovery</h4><p>Respond faster to urgent plumbing inquiries and keep service requests moving.</p></a>
+        <a class="card" href="/packages/growth/"><h4>Nebrex Growth</h4><p>Connect the website, lead capture, and follow-up into one practical system.</p></a>
+        <a class="card" href="/packages/partner/"><h4>Nebrex Partner</h4><p>Get ongoing support and monthly improvement when your system needs regular refinement.</p></a>
+      </div>
+    </section>
+
+    <section>
       <div class="section-title">Add-ons</div>
       <h2>Optional add-ons</h2>
       <div class="grid-3">
@@ -148,11 +179,9 @@ const meta = {
       <div class="section-title">FAQ</div>
       <h2>Common questions before you start</h2>
       <div class="faq">
-        <details><summary>Is Nebrex only for contractors?</summary><p>No. Nebrex is built for Calgary small businesses first, including service businesses, local shops, clinics, home services, and other teams that need better online presence, faster response, and stronger follow-up.</p></details>
-        <details><summary>Do I need to replace my current tools?</summary><p>Usually no. We look at what you already use first and build the simplest system that improves your customer flow.</p></details>
-        <details><summary>Can I start with just a website?</summary><p>Yes. Nebrex Presence is built for businesses that need a cleaner, more professional website before adding chat or automation.</p></details>
-        <details><summary>Will the AI chat sound robotic?</summary><p>No. The goal is clear, helpful customer communication that fits your business. We keep the system practical and human-reviewed.</p></details>
-        <details><summary>What package should most businesses start with?</summary><p>Nebrex Growth is the main fit when you want your website, lead response, and follow-up working together. If you only need one piece first, start with the simpler package that matches your biggest gap.</p></details>
+        {homeFaqs.map((item) => (
+          <details><summary>{item.question}</summary><p>{item.answer}</p></details>
+        ))}
       </div>
     </section>
 

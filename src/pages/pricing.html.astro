@@ -2,16 +2,22 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
 import PackageGrid from "../components/PackageGrid.astro";
+import { canonical, graph, ogImage, organizationSchema, serviceSchema } from "../data/seo";
+
+const pageUrl = canonical("/pricing.html");
 
 const meta = {
-  "title": "Packages | Nebrex Automations",
-  "description": "Clear website, lead response, follow-up, and growth system packages for Calgary small businesses.",
-  "canonical": "https://nebrex.ca/pricing.html",
-  "ogTitle": "Packages | Nebrex Automations",
+  "title": "Nebrex Pricing & Packages for Calgary Small Businesses",
+  "description": "Transparent Nebrex pricing for website, lead response, follow-up, Growth, and Partner packages built for Calgary small businesses.",
+  "canonical": pageUrl,
+  "ogTitle": "Nebrex Pricing & Packages for Calgary Small Businesses",
   "ogDescription": "Choose the Nebrex growth system that fits where your local business is today.",
-  "ogUrl": "https://nebrex.ca/pricing.html",
-  "ogImage": "https://nebrex.ca/og-image.png",
-  "jsonLd": ""
+  "ogUrl": pageUrl,
+  "ogImage": ogImage,
+  "jsonLd": graph([
+    organizationSchema(),
+    serviceSchema("Nebrex pricing and packages", "Website, lead response, follow-up, Growth, and Partner packages for Calgary small businesses.", pageUrl)
+  ])
 };
 ---
 
@@ -50,6 +56,18 @@ const meta = {
         </div>
         <div class="cta-row"><CtaButton /></div>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Package pages</div>
+    <h2>Compare each system in more detail</h2>
+    <div class="grid-3">
+      <a class="card" href="/packages/presence/"><h4>Nebrex Presence</h4><p>Website-first foundation for credibility, service clarity, and local SEO basics.</p></a>
+      <a class="card" href="/packages/capture/"><h4>Nebrex Capture</h4><p>Chatbot, lead capture, missed-call text back, and qualification.</p></a>
+      <a class="card" href="/packages/flow/"><h4>Nebrex Flow</h4><p>Follow-up automation for quotes, reminders, updates, and reviews.</p></a>
+      <a class="card" href="/packages/growth/"><h4>Nebrex Growth</h4><p>The connected website, lead flow, and follow-up package.</p></a>
+      <a class="card" href="/packages/partner/"><h4>Nebrex Partner</h4><p>Ongoing support, refinement, reporting review, and priority help.</p></a>
     </div>
   </section>
 </BaseLayout>

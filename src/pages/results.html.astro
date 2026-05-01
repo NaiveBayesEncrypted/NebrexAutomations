@@ -1,16 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
+import { canonical, graph, ogImage, organizationSchema } from "../data/seo";
+
+const pageUrl = canonical("/results.html");
 
 const meta = {
-  "title": "Results | Nebrex Automations",
-  "description": "Examples of local business improvements from clearer websites, faster lead response, and better follow-up.",
-  "canonical": "https://nebrex.ca/results.html",
-  "ogTitle": "Results | Nebrex Automations",
+  "title": "Small Business Results & Customer Flow Examples | Nebrex",
+  "description": "Examples of how clearer websites, faster lead response, and better follow-up improve customer flow for small businesses.",
+  "canonical": pageUrl,
+  "ogTitle": "Small Business Results & Customer Flow Examples | Nebrex",
   "ogDescription": "Practical outcomes from small-business growth systems.",
-  "ogUrl": "https://nebrex.ca/results.html",
-  "ogImage": "https://nebrex.ca/og-image.png",
-  "jsonLd": ""
+  "ogUrl": pageUrl,
+  "ogImage": ogImage,
+  "jsonLd": graph([organizationSchema()])
 };
 ---
 
@@ -41,6 +44,13 @@ const meta = {
       <div class="card"><h4>Faster response</h4><p>Calls, forms, and chat inquiries get a cleaner handoff to your team.</p></div>
       <div class="card"><h4>Better follow-up</h4><p>Appointments, quotes, reviews, and updates move forward with less manual chasing.</p></div>
     </div>
+  </section>
+
+  <section>
+    <div class="section-title">Client proof</div>
+    <h2>See real client examples</h2>
+    <p class="section-sub">For named client examples, packages used, and customer-flow improvements, review the Nebrex customer stories page.</p>
+    <div class="cta-row" style="margin-top:18px;"><a class="btn btn-outline" href="/customers.html">View Customer Examples</a></div>
   </section>
 
   <section><div class="section-title">Next Step</div><h2>Build the system that fits your business today</h2><p class="section-sub">Start with the biggest gap, then expand over time.</p><div class="cta-row"><CtaButton /></div></section>

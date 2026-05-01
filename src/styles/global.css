@@ -110,13 +110,6 @@ details:focus-visible summary {
 
 section[id] { scroll-margin-top: 94px; }
 
-/* Speed up first render by deferring off-screen section paint */
-main > section:not(.hero) {
-  content-visibility: auto;
-  contain-intrinsic-size: 760px;
-}
-
-
 /* -- Header & Navigation -- */
 header {
   position: sticky;

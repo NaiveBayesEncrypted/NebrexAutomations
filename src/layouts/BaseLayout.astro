@@ -26,6 +26,8 @@ const {
   jsonLd,
   bodyClass
 } = Astro.props;
+
+const resolvedOgImage = ogImage || "https://nebrex.ca/og-image.png";
 ---
 
 <!DOCTYPE html>
@@ -40,9 +42,9 @@ const {
     <meta property="og:title" content={ogTitle || title} />
     {ogDescription || description ? <meta property="og:description" content={ogDescription || description} /> : null}
     <meta property="og:url" content={ogUrl || canonical} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={resolvedOgImage} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={resolvedOgImage} />
     <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
     <link rel="shortcut icon" href="/favicon.ico?v=2" />
     <link rel="icon" type="image/png" href="/favicon-48x48.png?v=2" sizes="48x48" />

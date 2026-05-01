@@ -1,0 +1,147 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CtaButton from "../../../components/CtaButton.astro";
+import { canonical, faqSchema, graph, ogImage, organizationSchema, serviceSchema, solutionPages } from "../../../data/seo";
+
+export function getStaticPaths() {
+  return solutionPages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page }
+  }));
+}
+
+const { page } = Astro.props;
+const pagePath = `/solutions/${page.slug}/`;
+const pageUrl = canonical(pagePath);
+
+const meta = {
+  title: page.title,
+  description: page.description,
+  canonical: pageUrl,
+  ogTitle: page.title,
+  ogDescription: page.description,
+  ogUrl: pageUrl,
+  ogImage,
+  jsonLd: graph([
+    organizationSchema(),
+    serviceSchema(page.h1, page.description, pageUrl),
+    faqSchema(page.faqs)
+  ])
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">{page.eyebrow}</div>
+      <h1>{page.h1}</h1>
+      <p>{page.intro}</p>
+      <div class="cta-row">
+        <CtaButton />
+        <a class="btn btn-outline" href="/pricing.html">View Packages</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>What this includes</h3>
+      <ul class="hero-list">
+        {page.heroList.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Common problems</div>
+    <h2>Where this business type loses momentum</h2>
+    <div class="grid-3">
+      {page.problems.map((item) => (
+        <div class="card">
+          <h4>{item.split(" ").slice(0, 4).join(" ")}</h4>
+          <p>{item}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">What Nebrex sets up</div>
+    <h2>A practical response and follow-up system</h2>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>Core setup</h3>
+          <ul>
+            {page.setup.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h3>Relevant packages</h3>
+          <ul>
+            {page.packages.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+          </ul>
+          <div class="cta-row" style="margin-top:18px;"><a class="btn btn-outline" href="/pricing.html">Compare Packages</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Why it matters</div>
+    <h2>Small response gaps become real lost opportunities</h2>
+    <div class="grid-3">
+      {page.matters.map((item) => (
+        <div class="card"><h4>{item.split(" ").slice(0, 4).join(" ")}</h4><p>{item}</p></div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Rollout</div>
+    <h2>How the system gets launched</h2>
+    <div class="steps">
+      {page.rollout.map((item, index) => (
+        <div class="step"><span class="step-number">{index + 1}</span><span class="step-text">{item}</span></div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Best fit</div>
+    <h2>Who this is for</h2>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <p class="section-sub">{page.fit}</p>
+        </div>
+        <div class="cta-row">
+          <CtaButton />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">FAQ</div>
+    <h2>Common questions</h2>
+    <div class="faq">
+      {page.faqs.map((item) => (
+        <details>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <div class="section-title">Next step</div>
+          <h3>Map the simplest rollout for your business.</h3>
+          <p class="section-sub">We will help you choose the package and first workflow that makes the biggest difference.</p>
+        </div>
+        <div class="cta-row"><CtaButton /></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

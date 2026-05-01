@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CtaButton from "../../components/CtaButton.astro";
 import { packages } from "../../data/packages";
+import { canonical, faqSchema, graph, ogImage, organizationSchema, serviceSchema } from "../../data/seo";
 
 export function getStaticPaths() {
   return packages.map((pkg) => ({
@@ -11,16 +12,24 @@ export function getStaticPaths() {
 }
 
 const { pkg } = Astro.props;
+const packagePath = `/packages/${pkg.slug}/`;
+const pageUrl = canonical(packagePath);
+const pageFaqs = pkg.faqs || [];
+const relatedSolutions = pkg.relatedSolutions || [];
 
 const meta = {
-  title: `${pkg.name} | Nebrex Automations`,
-  description: `${pkg.name}: ${pkg.description} Built for Calgary small businesses that want simple systems that actually get used.`,
-  canonical: `https://nebrex.ca/packages/${pkg.slug}/`,
+  title: pkg.seoTitle || `${pkg.name} | Nebrex Automations`,
+  description: pkg.seoDescription || `${pkg.name}: ${pkg.description} Built for Calgary small businesses that want simple systems that actually get used.`,
+  canonical: pageUrl,
   ogTitle: `${pkg.name} | Nebrex Automations`,
-  ogDescription: pkg.description,
-  ogUrl: `https://nebrex.ca/packages/${pkg.slug}/`,
-  ogImage: "https://nebrex.ca/og-image.png",
-  jsonLd: ""
+  ogDescription: pkg.seoDescription || pkg.description,
+  ogUrl: pageUrl,
+  ogImage,
+  jsonLd: graph([
+    organizationSchema(),
+    serviceSchema(pkg.name, pkg.seoDescription || pkg.description, pageUrl),
+    ...(pageFaqs.length ? [faqSchema(pageFaqs)] : [])
+  ])
 };
 ---
 
@@ -87,6 +96,66 @@ const meta = {
       ))}
     </div>
   </section>
+
+  <section>
+    <div class="section-title">Common problems</div>
+    <h2>The business gap this package is built to fix</h2>
+    <div class="grid-3">
+      {pkg.problems.map((item) => (
+        <div class="card">
+          <h4>{item.split(" ").slice(0, 4).join(" ")}</h4>
+          <p>{item}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Implementation</div>
+    <h2>How {pkg.name} rolls out</h2>
+    <div class="steps">
+      {pkg.implementation.map((item, index) => (
+        <div class="step">
+          <span class="step-number">{index + 1}</span>
+          <span class="step-text">{item}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {relatedSolutions.length > 0 && (
+    <section>
+      <div class="section-title">Related paths</div>
+      <h2>See where this package fits</h2>
+      <div class="grid-3">
+        {relatedSolutions.map((item) => (
+          <a class="card" href={item.href}>
+            <h4>{item.label}</h4>
+            <p>Explore how this system applies to a specific business type or customer-flow problem.</p>
+          </a>
+        ))}
+        <a class="card" href="/pricing.html">
+          <h4>All packages</h4>
+          <p>Compare Presence, Capture, Flow, Growth, and Partner before choosing the right starting point.</p>
+        </a>
+      </div>
+    </section>
+  )}
+
+  {pageFaqs.length > 0 && (
+    <section>
+      <div class="section-title">FAQ</div>
+      <h2>Questions about {pkg.name}</h2>
+      <div class="faq">
+        {pageFaqs.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  )}
 
   <section>
     <div class="offer">

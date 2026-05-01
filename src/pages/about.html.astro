@@ -1,0 +1,133 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaButton from "../components/CtaButton.astro";
+import { canonical, graph, ogImage, organizationSchema } from "../data/seo";
+
+const pageUrl = canonical("/about.html");
+
+const meta = {
+  title: "About Nebrex | Calgary Small Business Growth Systems",
+  description: "Learn how Nebrex helps Calgary small businesses improve websites, lead response, follow-up, and simple automation with practical systems.",
+  canonical: pageUrl,
+  ogTitle: "About Nebrex | Calgary Small Business Growth Systems",
+  ogDescription: "Nebrex builds practical website, lead capture, follow-up, and automation systems for Calgary small businesses.",
+  ogUrl: pageUrl,
+  ogImage,
+  jsonLd: graph([organizationSchema()])
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">About Nebrex</div>
+      <h1>Practical growth systems for Calgary small businesses</h1>
+      <p>Nebrex helps local businesses look better online, respond faster to new inquiries, and follow up more consistently without adding more manual work.</p>
+      <div class="cta-row">
+        <CtaButton />
+        <a class="btn btn-outline" href="/pricing.html">See Packages</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>What Nebrex combines</h3>
+      <ul class="hero-list">
+        <li>Better websites</li>
+        <li>AI chat and lead capture</li>
+        <li>Missed-call and follow-up workflows</li>
+        <li>Simple business automation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Founder</div>
+    <h2>Built from hands-on digital work</h2>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>Jahan founded Nebrex to make practical systems easier for local businesses to use.</h3>
+          <p class="section-sub">Jahan has spent years in the digital world working around websites, e-commerce, brands, customer journeys, and the systems that help businesses present themselves clearly online. Nebrex brings that experience into a focused offer for small businesses: better online presence, faster lead response, and follow-up that does not depend on busy staff remembering every next step.</p>
+        </div>
+        <div>
+          <h3>Why Nebrex exists</h3>
+          <p>Most small businesses do not need a complicated tech stack. They need a clean website, a clear way to capture demand, and simple follow-up systems that actually get used. Nebrex is built around that practical gap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">What Nebrex does</div>
+    <h2>Not just websites. Not just chatbots. A better customer flow.</h2>
+    <div class="grid-3">
+      <a class="card" href="/packages/presence/"><h4>Website improvement</h4><p>Cleaner pages, mobile usability, service clarity, local SEO basics, and stronger calls to action.</p></a>
+      <a class="card" href="/packages/capture/"><h4>Lead capture</h4><p>Chatbot, lead forms, qualification questions, missed-call text back, and contact handoff.</p></a>
+      <a class="card" href="/packages/flow/"><h4>Follow-up systems</h4><p>Quote follow-up, reminders, customer updates, review requests, and simple team alerts.</p></a>
+      <a class="card" href="/packages/growth/"><h4>Connected growth system</h4><p>Website, capture, and follow-up working together with monthly improvement.</p></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Who it is for</div>
+    <h2>Built for local businesses that need clarity and speed</h2>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>Best-fit businesses</h3>
+          <ul>
+            <li>Calgary small businesses that want a stronger online presence</li>
+            <li>Home service and trade businesses that miss calls or quotes</li>
+            <li>Appointment-based businesses that need cleaner customer handoff</li>
+            <li>Teams that want less repetitive admin and more consistent follow-up</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Explore use cases</h3>
+          <ul>
+            <li><a href="/solutions/hvac/">HVAC lead response</a></li>
+            <li><a href="/solutions/plumbing/">Plumbing missed-call automation</a></li>
+            <li><a href="/services.html">Website and automation services</a></li>
+            <li><a href="/pricing.html">Nebrex packages</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">How it works</div>
+    <h2>Simple enough to launch, useful enough to keep improving</h2>
+    <div class="steps">
+      <div class="step"><span class="step-number">1</span><span class="step-text">Audit your website, lead response, and follow-up gaps.</span></div>
+      <div class="step"><span class="step-number">2</span><span class="step-text">Simplify the customer flow and choose the right starting package.</span></div>
+      <div class="step"><span class="step-number">3</span><span class="step-text">Implement practical tools that fit how your team works.</span></div>
+      <div class="step"><span class="step-number">4</span><span class="step-text">Support and improve the system over time.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Why clients choose Nebrex</div>
+    <h2>Calm, clear, and practical</h2>
+    <div class="grid-3">
+      <div class="card"><h4>Local understanding</h4><p>Nebrex is built around Calgary small-business needs first, with support for nearby Canadian markets.</p></div>
+      <div class="card"><h4>Human-reviewed systems</h4><p>Messaging, chat, and follow-up flows are reviewed so customer communication feels professional.</p></div>
+      <div class="card"><h4>Clear packages</h4><p>Presence, Capture, Flow, Growth, and Partner give your business a simple path from first fix to ongoing improvement.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <div class="section-title">Next step</div>
+          <h3>See which Nebrex system fits your business.</h3>
+          <p class="section-sub">Start with the biggest gap: website, lead response, follow-up, or the connected Growth system.</p>
+        </div>
+        <div class="cta-row">
+          <CtaButton />
+          <a class="btn btn-outline" href="/pricing.html">See Packages</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

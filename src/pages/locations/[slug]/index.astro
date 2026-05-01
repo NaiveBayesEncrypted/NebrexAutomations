@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CtaButton from "../../../components/CtaButton.astro";
+import { canonical, faqSchema, graph, locationPages, ogImage, organizationSchema, serviceSchema } from "../../../data/seo";
+
+export function getStaticPaths() {
+  return locationPages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page }
+  }));
+}
+
+const { page } = Astro.props;
+const pagePath = `/locations/${page.slug}/`;
+const pageUrl = canonical(pagePath);
+
+const meta = {
+  title: page.title,
+  description: page.description,
+  canonical: pageUrl,
+  ogTitle: page.title,
+  ogDescription: page.description,
+  ogUrl: pageUrl,
+  ogImage,
+  jsonLd: graph([
+    organizationSchema(),
+    serviceSchema(page.h1, page.description, pageUrl, `${page.city}, Alberta`),
+    faqSchema(page.faq)
+  ])
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">{page.city} small businesses</div>
+      <h1>{page.h1}</h1>
+      <p>{page.intro}</p>
+      <div class="cta-row">
+        <CtaButton />
+        <a class="btn btn-outline" href="/pricing.html">See Packages</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>What Nebrex supports</h3>
+      <ul class="hero-list">
+        {page.emphasis.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Local fit</div>
+    <h2>Built around how {page.city} customers choose</h2>
+    <div class="offer">
+      <p class="section-sub">{page.framing}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Systems</div>
+    <h2>Start with the gap that matters most</h2>
+    <div class="grid-3">
+      <a class="card" href="/packages/presence/"><h4>Nebrex Presence</h4><p>A cleaner website, stronger calls to action, mobile improvements, and local SEO basics.</p></a>
+      <a class="card" href="/packages/capture/"><h4>Nebrex Capture</h4><p>Chatbot, lead capture, missed-call text back, and faster response paths.</p></a>
+      <a class="card" href="/packages/flow/"><h4>Nebrex Flow</h4><p>Follow-up messages, reminders, review requests, and simple workflow triggers.</p></a>
+      <a class="card" href="/packages/growth/"><h4>Nebrex Growth</h4><p>A connected website, lead flow, and follow-up system for local business growth.</p></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">FAQ</div>
+    <h2>Questions from {page.city} businesses</h2>
+    <div class="faq">
+      {page.faq.map((item) => (
+        <details>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <div class="section-title">Next step</div>
+          <h3>Build the simplest system for your {page.city} business.</h3>
+          <p class="section-sub">We will help you choose whether to start with website clarity, faster response, follow-up, or a connected growth system.</p>
+        </div>
+        <div class="cta-row"><CtaButton /></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
