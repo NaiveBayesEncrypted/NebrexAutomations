@@ -363,6 +363,196 @@ export const resourceArticles = [
       { label: "HVAC automation", href: "/solutions/hvac/" }
     ],
     cta: "Build My Growth System"
+  },
+  {
+    slug: "calgary-contractor-website-checklist",
+    title: "Calgary Contractor Website Checklist for More Leads",
+    description: "A practical website checklist for Calgary contractors that want more calls, clearer quote requests, and stronger trust from local customers.",
+    date: "2026-05-01",
+    h1: "Calgary contractor website checklist for more leads",
+    intro: "A contractor website should do more than look clean. It should help a local customer understand the service, trust the business, and take the next step without confusion.",
+    sections: [
+      { heading: "Make the service obvious in five seconds", paragraphs: ["Many contractor websites make visitors work too hard to understand what the company does. The homepage should quickly show the main services, service area, and best next step.", "For Calgary contractors, that usually means plain service language, a clear phone or form path, and pages that match how customers search for help."] },
+      { heading: "Build pages around real buying questions", paragraphs: ["A good service page should answer what is included, who it is for, what area is served, and how to request a quote. Short generic pages rarely build enough confidence.", "The best pages feel useful before a customer ever calls. They reduce hesitation and help your team receive better inquiries."] },
+      { heading: "Treat mobile as the main experience", paragraphs: ["Contractor leads often come from a phone. Tap targets, form fields, sticky navigation, and visible calls to action matter because the visitor may be comparing options quickly.", "If the mobile experience feels slow or awkward, the business can lose the lead before the first conversation starts."] },
+      { heading: "Where Nebrex fits", paragraphs: ["Nebrex Presence focuses on the website foundation: service pages, local SEO basics, mobile usability, stronger calls to action, and clearer lead paths."] }
+    ],
+    links: [
+      { label: "Nebrex Presence", href: "/packages/presence/" },
+      { label: "Roofing lead capture", href: "/solutions/roofing/" }
+    ],
+    cta: "Start with Presence"
+  },
+  {
+    slug: "calgary-small-business-local-seo-foundation",
+    title: "Local SEO Foundation for Calgary Small Businesses",
+    description: "What Calgary small businesses should fix first for local SEO, including service pages, internal links, contact clarity, and useful content.",
+    date: "2026-05-01",
+    h1: "Local SEO foundation for Calgary small businesses",
+    intro: "Local SEO is not only keywords. For a small business, it starts with a website that clearly explains what you do, where you work, and how customers can reach you.",
+    sections: [
+      { heading: "Start with service clarity", paragraphs: ["Search engines and customers both need clear pages. If your site only says what you do in a broad way, it becomes harder to match real local searches.", "Each core service should have enough detail to help a customer decide whether to contact you."] },
+      { heading: "Make the location signal natural", paragraphs: ["Calgary should appear where it genuinely helps the user: service area copy, contact details, page titles, and local examples. Repeating city names in every sentence makes the page worse, not better.", "The strongest local pages sound like they were written for a real customer in the market."] },
+      { heading: "Connect related pages", paragraphs: ["Internal links help visitors move from a general page to a specific service, package, or use case. They also help search engines understand which pages matter.", "A simple structure usually beats a large messy site."] },
+      { heading: "Where Nebrex fits", paragraphs: ["Nebrex Presence helps small businesses build a clearer website foundation. Nebrex Growth connects that foundation to lead capture and follow-up so traffic has a better chance of turning into real inquiries."] }
+    ],
+    links: [
+      { label: "Nebrex Growth", href: "/packages/growth/" },
+      { label: "HVAC lead response", href: "/solutions/hvac/" }
+    ],
+    cta: "See Packages"
+  },
+  {
+    slug: "how-fast-should-small-business-respond-to-leads",
+    title: "How Fast Should a Small Business Respond to New Leads?",
+    description: "A practical lead response guide for small businesses that want fewer missed opportunities and better first conversations.",
+    date: "2026-05-01",
+    h1: "How fast should a small business respond to new leads?",
+    intro: "The honest answer is simple: faster than the customer loses momentum. For local businesses, slow response often turns a warm inquiry into a lost opportunity.",
+    sections: [
+      { heading: "Speed is part of the customer experience", paragraphs: ["When someone fills out a form, opens chat, or calls your business, they are already in motion. A fast acknowledgement tells them the business is organized and paying attention.", "Even a simple message that confirms the inquiry and explains the next step can keep the conversation alive."] },
+      { heading: "Not every lead needs the same response", paragraphs: ["An emergency repair request needs different handling than a general estimate or consultation. The system should capture urgency, service type, and preferred contact method so the team knows what to do first.", "Better intake helps staff respond with context instead of starting from zero."] },
+      { heading: "The goal is consistency", paragraphs: ["Fast once in a while is not enough. The business needs a repeatable path for calls, forms, chat, and follow-up so leads do not depend on whoever happens to be available.", "That is where simple automation can support the team without replacing the human conversation."] },
+      { heading: "Where Nebrex fits", paragraphs: ["Nebrex Capture helps businesses respond faster to new inquiries. Nebrex Flow helps keep the next steps moving after the first contact."] }
+    ],
+    links: [
+      { label: "Nebrex Capture", href: "/packages/capture/" },
+      { label: "Plumbing missed-call automation", href: "/solutions/plumbing/" }
+    ],
+    cta: "Start with Capture"
+  },
+  {
+    slug: "best-website-pages-for-local-service-business",
+    title: "Best Website Pages for a Local Service Business",
+    description: "The core website pages local service businesses need to build trust, explain services, and turn more visitors into leads.",
+    date: "2026-05-01",
+    h1: "Best website pages for a local service business",
+    intro: "A local service business does not need a giant website to get started. It needs the right pages, written clearly, with a direct path from interest to contact.",
+    sections: [
+      { heading: "Homepage", paragraphs: ["The homepage should make the offer clear, show who the business helps, and guide visitors to the next step. It should not try to explain every detail at once.", "Think of it as the front desk of the website: clear, calm, and easy to act on."] },
+      { heading: "Service pages", paragraphs: ["Service pages are where customers decide whether the business fits their need. Each page should explain the service, common situations, service area, and how to request help.", "These pages are also important for local SEO because they match specific searches better than one broad services page."] },
+      { heading: "About and proof pages", paragraphs: ["Customers want to know who is behind the business and whether it can be trusted. An About page, customer examples, or project-style proof can make the company feel more real.", "Do not invent proof. Use grounded experience, client examples, process clarity, and practical detail."] },
+      { heading: "Where Nebrex fits", paragraphs: ["Nebrex Presence builds the key website structure. Nebrex Growth adds lead response and follow-up so the pages do more than sit online."] }
+    ],
+    links: [
+      { label: "Nebrex Presence", href: "/packages/presence/" },
+      { label: "Electrical intake systems", href: "/solutions/electrical/" }
+    ],
+    cta: "Upgrade My Website"
+  },
+  {
+    slug: "quote-follow-up-system-for-contractors",
+    title: "Quote Follow-Up System for Contractors",
+    description: "How contractors can follow up on quotes without sounding pushy or relying on manual reminders.",
+    date: "2026-05-01",
+    h1: "Quote follow-up system for contractors",
+    intro: "A quote is not finished when it is sent. For many contractors, the follow-up is where serious customers either move forward or quietly drift away.",
+    sections: [
+      { heading: "Why quotes go cold", paragraphs: ["Customers get busy, compare options, or forget the next step. If the business waits too long or never follows up, the quote loses momentum.", "A clear follow-up system keeps the conversation helpful instead of pushy."] },
+      { heading: "What a good follow-up includes", paragraphs: ["The best follow-up reminds the customer what was discussed, offers to answer questions, and gives a simple next step. It should sound like a real business checking in, not a generic sales blast.", "Timing matters. One useful message soon after the quote and another later can be enough for many small teams."] },
+      { heading: "Use alerts for high-value work", paragraphs: ["Some opportunities deserve faster attention. Larger jobs, urgent requests, or repeat customers can trigger a team alert so they do not sit in a general inbox.", "This helps staff focus without manually tracking every lead from memory."] },
+      { heading: "Where Nebrex fits", paragraphs: ["Nebrex Flow is built for quote follow-up, reminders, customer updates, and review requests. Nebrex Growth connects the website and lead capture before the quote even happens."] }
+    ],
+    links: [
+      { label: "Nebrex Flow", href: "/packages/flow/" },
+      { label: "Roofing estimate follow-up", href: "/solutions/roofing/" }
+    ],
+    cta: "Start with Flow"
+  },
+  {
+    slug: "ai-chatbot-for-calgary-service-businesses",
+    title: "AI Chatbot for Calgary Service Businesses: What to Set Up First",
+    description: "A practical setup guide for Calgary service businesses considering an AI chatbot for website questions, lead capture, and handoff.",
+    date: "2026-05-01",
+    h1: "AI chatbot for Calgary service businesses: what to set up first",
+    intro: "An AI chatbot should help customers take the next step faster. For Calgary service businesses, the best first version is usually simple, clear, and focused on lead capture.",
+    sections: [
+      { heading: "Start with common questions", paragraphs: ["List the questions your team answers every week: service areas, timing, job types, booking steps, pricing basics, and what information is needed for a quote.", "Those answers should be reviewed and written in plain language before the chatbot goes live."] },
+      { heading: "Add qualification questions", paragraphs: ["A chatbot becomes more valuable when it captures useful details. Ask what the customer needs, where they are located, how urgent it is, and how they prefer to be contacted.", "The goal is to help the team respond better, not to interrogate the customer."] },
+      { heading: "Create a clean handoff", paragraphs: ["The chatbot should know when to send the inquiry to a person. If the visitor needs pricing, booking, or a specific answer, the system should collect details and trigger the right next step.", "A good handoff makes the business feel responsive and organized."] },
+      { heading: "Where Nebrex fits", paragraphs: ["Nebrex Capture includes AI chatbot setup, lead capture forms, qualification questions, and booking or contact handoff."] }
+    ],
+    links: [
+      { label: "Nebrex Capture", href: "/packages/capture/" },
+      { label: "HVAC lead response", href: "/solutions/hvac/" }
+    ],
+    cta: "Capture More Leads"
+  },
+  {
+    slug: "google-business-profile-and-website-work-together",
+    title: "How Your Website and Google Business Profile Should Work Together",
+    description: "How local businesses can connect Google Business Profile visibility with a website that turns searchers into real inquiries.",
+    date: "2026-05-01",
+    h1: "How your website and Google Business Profile should work together",
+    intro: "A Google Business Profile can help people find you, but the website often decides whether they trust you enough to call, book, or request a quote.",
+    sections: [
+      { heading: "Keep the message consistent", paragraphs: ["Your services, service area, contact details, and business positioning should feel consistent between your profile and website. Mismatched information creates doubt.", "If a customer clicks from Google to the site, the next step should feel obvious."] },
+      { heading: "Use the website to answer deeper questions", paragraphs: ["Your profile gives quick information. Your website should explain services, process, examples, FAQs, and contact options in more detail.", "That is especially important for quote-based or trust-heavy services where customers need more confidence before reaching out."] },
+      { heading: "Make reviews easier to earn", paragraphs: ["A consistent review request process can support your profile over time. After a good job or customer interaction, the request should be timely, polite, and easy to follow.", "This is a follow-up problem as much as a marketing problem."] },
+      { heading: "Where Nebrex fits", paragraphs: ["Nebrex Presence supports website clarity and local SEO basics. Nebrex Flow can support review requests and customer follow-up."] }
+    ],
+    links: [
+      { label: "Nebrex Presence", href: "/packages/presence/" },
+      { label: "Plumbing follow-up systems", href: "/solutions/plumbing/" }
+    ],
+    cta: "Start with Presence"
+  },
+  {
+    slug: "small-business-automation-checklist",
+    title: "Small Business Automation Checklist: What to Automate First",
+    description: "A simple automation checklist for small businesses that want less manual admin without making operations complicated.",
+    date: "2026-05-01",
+    h1: "Small business automation checklist: what to automate first",
+    intro: "Small businesses should not automate everything at once. The best starting point is the repetitive work that affects leads, customers, and follow-up.",
+    sections: [
+      { heading: "Start with lead capture", paragraphs: ["If new inquiries are messy, every later step becomes harder. Forms, chat, missed-call text back, and alerts should capture enough information for the team to act quickly.", "This is usually the highest-return place to start because it affects new revenue."] },
+      { heading: "Automate simple follow-up", paragraphs: ["Appointment reminders, quote check-ins, review requests, and customer updates are strong early candidates. They are repetitive, easy to forget, and valuable when done consistently.", "Keep the messages short and useful."] },
+      { heading: "Avoid overbuilding", paragraphs: ["A small business does not need a giant automation setup before the basics work. Start with one clear workflow, test it with real customers, and improve it over time.", "The best systems are the ones staff actually use."] },
+      { heading: "Where Nebrex fits", paragraphs: ["Nebrex Flow handles follow-up workflows, while Nebrex Growth connects website, lead capture, and automation into one practical system."] }
+    ],
+    links: [
+      { label: "Nebrex Growth", href: "/packages/growth/" },
+      { label: "Electrical lead intake", href: "/solutions/electrical/" }
+    ],
+    cta: "Build My Growth System"
+  },
+  {
+    slug: "online-booking-vs-contact-form-local-business",
+    title: "Online Booking vs Contact Form: What Local Businesses Should Use",
+    description: "How local businesses can choose between online booking, contact forms, chat, and phone calls without confusing customers.",
+    date: "2026-05-01",
+    h1: "Online booking vs contact form: what local businesses should use",
+    intro: "The best contact path depends on how the business sells. Some customers are ready to book. Others need a quote, a call, or a few questions answered first.",
+    sections: [
+      { heading: "Use booking when the service is clear", paragraphs: ["Online booking works best when the service, timing, and next step are predictable. It can reduce back-and-forth and make the business feel easier to work with.", "If customers often need custom quotes, booking may need a qualification step first."] },
+      { heading: "Use forms when details matter", paragraphs: ["A good contact form can collect service type, location, timeline, budget range, and job details. This helps the team reply with more context.", "The form should be short enough that people finish it, but specific enough that the lead is useful."] },
+      { heading: "Use chat when visitors need help choosing", paragraphs: ["Chat can guide visitors who are not sure what they need yet. It can answer common questions and hand off when the conversation becomes specific.", "For many local businesses, the best setup includes more than one contact path."] },
+      { heading: "Where Nebrex fits", paragraphs: ["Nebrex Capture helps businesses set up chat, forms, missed-call text back, and booking or contact handoff based on how customers actually buy."] }
+    ],
+    links: [
+      { label: "Nebrex Capture", href: "/packages/capture/" },
+      { label: "HVAC lead response", href: "/solutions/hvac/" }
+    ],
+    cta: "Start with Capture"
+  },
+  {
+    slug: "review-request-system-for-local-business",
+    title: "Review Request System for Local Businesses",
+    description: "How local businesses can request more reviews consistently without making the customer experience feel awkward.",
+    date: "2026-05-01",
+    h1: "Review request system for local businesses",
+    intro: "Good reviews are often earned during the work but lost after the work because no one asks at the right time. A simple review request system fixes that gap.",
+    sections: [
+      { heading: "Timing matters", paragraphs: ["The best time to ask is usually after a successful job, appointment, or customer outcome. Waiting too long makes the request feel less connected to the experience.", "A timely message can feel helpful and natural when the customer is happy."] },
+      { heading: "Make the request easy", paragraphs: ["Customers are more likely to leave a review when the link is clear, the message is short, and the request does not feel demanding.", "The message should sound like the business, not like a generic marketing template."] },
+      { heading: "Connect reviews to follow-up", paragraphs: ["Review requests work best as part of a broader follow-up process. Customer updates, completion messages, and review requests should feel connected.", "That makes the business feel organized from first inquiry to finished work."] },
+      { heading: "Where Nebrex fits", paragraphs: ["Nebrex Flow can include review requests, customer update messages, and team alerts. Nebrex Partner can refine the process month after month."] }
+    ],
+    links: [
+      { label: "Nebrex Flow", href: "/packages/flow/" },
+      { label: "Plumbing lead response", href: "/solutions/plumbing/" }
+    ],
+    cta: "Improve Follow-Up"
   }
 ];
 
