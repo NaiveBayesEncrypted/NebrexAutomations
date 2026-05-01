@@ -2,7 +2,12 @@ export const packages = [
   {
     slug: "presence",
     name: "Nebrex Presence",
-    description: "A better website for a stronger first impression.",
+    description: "A stronger online presence for businesses that need credibility fast.",
+    price: {
+      label: "Setup + Monthly",
+      setup: "$997 setup",
+      monthly: "$99/mo support"
+    },
     focus: "Website-first foundation",
     includes: [
       "Website redesign or rebuild",
@@ -10,8 +15,7 @@ export const packages = [
       "Service pages",
       "Local SEO basics",
       "Contact form setup",
-      "Call-to-action improvements",
-      "Speed and usability improvements"
+      "Call-to-action improvements"
     ],
     outcomes: [
       "A cleaner first impression",
@@ -20,22 +24,28 @@ export const packages = [
       "Better mobile experience"
     ],
     bestFor: "Businesses that need a cleaner, more professional online presence.",
-    cta: "Choose Presence",
-    href: "/packages/presence/"
+    cta: "Start with Presence",
+    href: "/packages/presence/",
+    checkoutLabel: "Pay $997 Setup",
+    checkoutHref: "https://buy.stripe.com/9B64gz2bx6Hv77w0nZ6kg01"
   },
   {
     slug: "capture",
     name: "Nebrex Capture",
-    description: "Turn more inquiries into real conversations.",
+    description: "Turn more website visitors into real conversations.",
+    price: {
+      label: "Setup + Monthly",
+      setup: "$1,497 setup",
+      monthly: "$149/mo support"
+    },
     focus: "Lead intake and response",
     includes: [
-      "AI website chat",
+      "Chatbot",
       "Lead capture forms",
       "Missed-call text back",
       "Qualification questions",
       "Follow-up messages",
-      "Booking or contact handoff",
-      "Internal lead alerts"
+      "Booking or contact handoff"
     ],
     outcomes: [
       "Faster replies",
@@ -44,13 +54,20 @@ export const packages = [
       "Fewer missed opportunities"
     ],
     bestFor: "Businesses that want faster replies without hiring extra staff.",
-    cta: "Choose Capture",
-    href: "/packages/capture/"
+    cta: "Start with Capture",
+    href: "/packages/capture/",
+    checkoutLabel: "Pay $1,497 Setup",
+    checkoutHref: "https://buy.stripe.com/aFa00jg2naXL63sc6H6kg00"
   },
   {
     slug: "flow",
     name: "Nebrex Flow",
-    description: "Keep communication moving without more admin work.",
+    description: "Automate follow-up so fewer leads slip through.",
+    price: {
+      label: "Setup + Monthly",
+      setup: "$2,497 setup",
+      monthly: "$249/mo support"
+    },
     focus: "Follow-up and workflow automation",
     includes: [
       "Appointment reminders",
@@ -66,8 +83,8 @@ export const packages = [
       "Clearer customer updates",
       "Less routine coordination"
     ],
-    bestFor: "Businesses that want fewer dropped balls after the first contact.",
-    cta: "Choose Flow",
+    bestFor: "Businesses that want fewer missed follow-ups.",
+    cta: "Start with Flow",
     href: "/packages/flow/"
   },
   {
@@ -75,12 +92,17 @@ export const packages = [
     name: "Nebrex Growth",
     badge: "Most Popular",
     featured: true,
-    description: "A connected front-office system for local business growth.",
+    description: "Connect your website, lead flow, and follow-up into one system.",
+    price: {
+      label: "Setup + Monthly",
+      setup: "$3,997 setup",
+      monthly: "$399/mo support"
+    },
     focus: "Connected website, lead flow, and follow-up",
     includes: [
-      "Nebrex Presence",
-      "Nebrex Capture",
-      "Nebrex Flow",
+      "Everything in Presence",
+      "Everything in Capture",
+      "Everything in Flow",
       "Monthly optimization",
       "Performance snapshot",
       "Ongoing improvements"
@@ -91,14 +113,19 @@ export const packages = [
       "Better follow-through",
       "Ongoing improvement"
     ],
-    bestFor: "Businesses that want their website, lead flow, and follow-up working together.",
-    cta: "Choose Growth",
+    bestFor: "Businesses that want one connected growth system.",
+    cta: "Start with Growth",
     href: "/packages/growth/"
   },
   {
     slug: "partner",
     name: "Nebrex Partner",
-    description: "Ongoing support and monthly improvement.",
+    description: "Ongoing support, refinement, and monthly improvement.",
+    price: {
+      label: "Setup + Monthly",
+      setup: "Custom setup",
+      monthly: "From $750/mo support"
+    },
     focus: "Premium ongoing support",
     includes: [
       "Everything in Nebrex Growth",
@@ -115,8 +142,8 @@ export const packages = [
       "Long-term improvement"
     ],
     bestFor: "Businesses that want a long-term partner instead of one-time setup.",
-    cta: "Choose Partner",
-    href: "/packages/partner/"
+    cta: "Book a Call",
+    href: "/contact.html"
   }
 ];
 

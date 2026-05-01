@@ -1,5 +1,15 @@
 ---
 import { packages } from "../data/packages";
+
+const comparisonRows = [
+  ["Website redesign", "Included", "Add-on", "Add-on", "Included", "Included"],
+  ["Chatbot", "Add-on", "Included", "Add-on", "Included", "Included"],
+  ["Lead capture", "Basic", "Included", "Add-on", "Included", "Included"],
+  ["Follow-up automation", "Add-on", "Basic", "Included", "Included", "Included"],
+  ["Review requests", "Add-on", "Add-on", "Included", "Included", "Included"],
+  ["Monthly optimization", "Add-on", "Add-on", "Add-on", "Included", "Included"],
+  ["Priority support", "Add-on", "Add-on", "Add-on", "Add-on", "Included"]
+];
 ---
 
 <div class="packages package-grid">
@@ -8,6 +18,11 @@ import { packages } from "../data/packages";
       <div class="package-card-head">
         <span class:list={["badge", item.featured && "badge-accent"]}>{item.badge || "Nebrex"}</span>
         <h4>{item.name}</h4>
+        <div class="package-price" aria-label={item.price.label}>
+          <span>{item.price.label}</span>
+          <strong>{item.price.setup}</strong>
+          <strong>{item.price.monthly}</strong>
+        </div>
         <p>{item.description}</p>
       </div>
       <div class="package-divider"></div>
@@ -23,4 +38,31 @@ import { packages } from "../data/packages";
       </div>
     </article>
   ))}
+</div>
+<p class="package-scope-note">Most projects stay close to these starting prices. Final pricing depends on page count, integrations, and workflow complexity.</p>
+
+<div class="package-compare">
+  <div class="package-compare-head">
+    <span class="section-title">Compare</span>
+    <h3>What each package includes</h3>
+  </div>
+  <div class="package-compare-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Feature</th>
+          {packages.map((item) => <th scope="col">{item.name.replace("Nebrex ", "")}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {comparisonRows.map((row) => (
+          <tr>
+            {row.map((cell, index) => (
+              index === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -29,8 +29,21 @@ const meta = {
     <div>
       <div class="eyebrow">Package</div>
       <h1>{pkg.name}</h1>
+      <div class="package-price package-page-price" aria-label={pkg.price.label}>
+        <span>{pkg.price.label}</span>
+        <strong>{pkg.price.setup}</strong>
+        <strong>{pkg.price.monthly}</strong>
+      </div>
       <p>{pkg.description}</p>
-      <div class="cta-row"><CtaButton /><a class="btn btn-outline" href="/pricing.html">View all packages</a></div>
+      <div class="cta-row package-page-actions">
+        {pkg.checkoutHref ? (
+          <a class="btn btn-primary" href={pkg.checkoutHref}>{pkg.checkoutLabel}</a>
+        ) : (
+          <CtaButton />
+        )}
+        {pkg.checkoutHref && <CtaButton class="btn btn-outline" />}
+        <a class="package-tertiary-link" href="/pricing.html">View all packages</a>
+      </div>
     </div>
     <div class="hero-card">
       <h3>{pkg.focus}</h3>
@@ -51,6 +64,7 @@ const meta = {
           <ul>
             {pkg.includes.map((item) => <li>{item}</li>)}
           </ul>
+          <p class="package-scope-note package-page-note">Most projects stay close to these starting prices. Final pricing depends on page count, integrations, and workflow complexity.</p>
         </div>
         <div>
           <h3>Best for</h3>
