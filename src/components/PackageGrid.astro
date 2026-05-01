@@ -1,0 +1,26 @@
+---
+import { packages } from "../data/packages";
+---
+
+<div class="packages package-grid">
+  {packages.map((item) => (
+    <article class:list={["card", "package-card", item.featured && "card-featured", item.featured && "package-card-featured"]}>
+      <div class="package-card-head">
+        <span class:list={["badge", item.featured && "badge-accent"]}>{item.badge || "Nebrex"}</span>
+        <h4>{item.name}</h4>
+        <p>{item.description}</p>
+      </div>
+      <div class="package-divider"></div>
+      <ul class="package-list">
+        {item.includes.map((line) => <li>{line}</li>)}
+      </ul>
+      <div class="package-best">
+        <span>Best for</span>
+        <p>{item.bestFor}</p>
+      </div>
+      <div class="card-cta package-cta">
+        <a class:list={["btn", item.featured ? "btn-primary" : "btn-outline"]} href={item.href}>{item.cta}</a>
+      </div>
+    </article>
+  ))}
+</div>

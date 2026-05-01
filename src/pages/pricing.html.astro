@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaButton from "../components/CtaButton.astro";
+import PackageGrid from "../components/PackageGrid.astro";
+
+const meta = {
+  "title": "Packages | Nebrex Automations",
+  "description": "Clear website, lead response, follow-up, and growth system packages for Calgary small businesses.",
+  "canonical": "https://nebrex.ca/pricing.html",
+  "ogTitle": "Packages | Nebrex Automations",
+  "ogDescription": "Choose the Nebrex growth system that fits where your local business is today.",
+  "ogUrl": "https://nebrex.ca/pricing.html",
+  "ogImage": "https://nebrex.ca/og-image.png",
+  "jsonLd": ""
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">Packages</div>
+      <h1>Choose the system that fits your business today</h1>
+      <p>Start with a better website, faster lead response, stronger follow-up, or Nebrex Growth to bring the pieces together.</p>
+      <div class="cta-row"><CtaButton /></div>
+    </div>
+    <div class="hero-card">
+      <h3>Package principles</h3>
+      <ul class="hero-list">
+        <li>Clear outcome by package</li>
+        <li>Simple starting point</li>
+        <li>Built for local businesses</li>
+        <li>Easy to expand over time</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Packages</div>
+    <h2>Simple systems for growing local businesses</h2>
+    <p class="section-sub">Nebrex Growth is the main offer when you want your website, lead flow, and follow-up working together.</p>
+    <PackageGrid />
+  </section>
+
+  <section>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>Start simple and build from there</h3>
+          <p class="section-sub">If you are not sure where to start, book a call and we will help you choose the package that matches the biggest gap in your business today.</p>
+        </div>
+        <div class="cta-row"><CtaButton /></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,70 @@
+---
+import { brand } from "../data/site";
+
+const exploreLinks = [
+  { label: "Home", href: "/" },
+  { label: "How It Works", href: "/process.html" },
+  { label: "Customers", href: "/customers.html" },
+  { label: "Resources", href: "/resources.html" },
+  { label: "About", href: "/services.html" },
+  { label: "Book a Call", href: brand.ctaHref }
+];
+
+const useCaseLinks = [
+  { label: "Home Services", href: "/solutions/hvac/" },
+  { label: "Professional Services", href: "/services.html" },
+  { label: "Clinics", href: "/customers.html" },
+  { label: "Local Retail", href: "/services.html" },
+  { label: "Calgary Businesses", href: "/services.html" },
+  { label: "Canada-Wide Support", href: "/services.html" }
+];
+
+const contactLinks = [
+  { label: "Book a Call", href: brand.ctaHref },
+  { label: brand.emailLabel, href: brand.emailHref },
+  { label: brand.phoneLabel, href: brand.phoneHref },
+  { label: "Privacy", href: "/privacy.html" },
+  { label: "Terms", href: "/terms.html" }
+];
+---
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href={brand.homeHref} class="logo footer-logo" aria-label={brand.name + " - home"}>
+          <span class="logo-mark" aria-hidden="true"><span class="mark-n">N</span><span class="mark-x">X</span></span>
+          <span class="logo-text">
+            <span class="logo-word">NEBRE<span class="logo-x">X</span></span>
+            <span class="logo-sub">{brand.logoSub}</span>
+          </span>
+        </a>
+        <p>Systems that help small businesses look better, respond faster, and follow up better.</p>
+        <div class="footer-actions" aria-label="Contact options">
+          <a href={brand.ctaHref} aria-label="Book a call">Book a Call</a>
+          <a href={brand.emailHref} aria-label={"Email " + brand.emailLabel}>Email</a>
+          <a href={brand.phoneHref} aria-label={"Call " + brand.phoneLabel}>Call</a>
+        </div>
+      </div>
+
+      <nav class="footer-column" aria-label="Explore">
+        <h3>Explore</h3>
+        {exploreLinks.map((link) => <a href={link.href} class:list={{ "footer-link-accent": link.label === "Book a Call" }}>{link.label}</a>)}
+      </nav>
+
+      <nav class="footer-column" aria-label="Use cases">
+        <h3>Use Cases</h3>
+        {useCaseLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+      </nav>
+
+      <nav class="footer-column" aria-label="Contact">
+        <h3>Contact</h3>
+        {contactLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Nebrex Automations. Built in Calgary, Alberta. Serving businesses across Canada.</p>
+    </div>
+  </div>
+</footer>

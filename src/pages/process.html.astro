@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaButton from "../components/CtaButton.astro";
+
+const meta = {
+  "title": "Process | Nebrex Automations",
+  "description": "Nebrex process for building simple website, lead response, follow-up, and automation systems for local businesses.",
+  "canonical": "https://nebrex.ca/process.html",
+  "ogTitle": "Process | Nebrex Automations",
+  "ogDescription": "A simple rollout path for Calgary small-business growth systems.",
+  "ogUrl": "https://nebrex.ca/process.html",
+  "ogImage": "https://nebrex.ca/og-image.png",
+  "jsonLd": ""
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">Process</div>
+      <h1>A clear path from messy customer flow to simple system</h1>
+      <p>We start with the biggest gap, build the first useful system, then improve it as your business grows.</p>
+      <div class="cta-row"><CtaButton /></div>
+    </div>
+    <div class="hero-card">
+      <h3>Rollout path</h3>
+      <ul class="hero-list">
+        <li>Review your website and customer flow</li>
+        <li>Choose the right package</li>
+        <li>Build and connect the system</li>
+        <li>Improve over time</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Step 1</div>
+    <h2>Improve your online presence</h2>
+    <div class="grid-3">
+      <div class="card"><h4>Website review</h4><p>Find the places where customers lose trust, get confused, or fail to take action.</p></div>
+      <div class="card"><h4>Service clarity</h4><p>Make the offer easier to understand and easier to contact you about.</p></div>
+      <div class="card"><h4>Local basics</h4><p>Improve the pieces that help Calgary customers find and trust your business.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Step 2</div>
+    <h2>Respond faster to new inquiries</h2>
+    <div class="grid-3">
+      <div class="card"><h4>Chat and forms</h4><p>Capture better details from new visitors and make the next step clear.</p></div>
+      <div class="card"><h4>Lead alerts</h4><p>Send the right information to the right person quickly.</p></div>
+      <div class="card"><h4>Missed-call text back</h4><p>Give callers a quick response when your team cannot pick up right away.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Step 3</div>
+    <h2>Follow up more consistently</h2>
+    <div class="grid-3">
+      <div class="card"><h4>Reminder flows</h4><p>Keep appointments, quotes, and next steps moving.</p></div>
+      <div class="card"><h4>Review requests</h4><p>Ask happy customers at the right time with less manual effort.</p></div>
+      <div class="card"><h4>Ongoing improvement</h4><p>Refine the system based on what customers actually do.</p></div>
+    </div>
+    <div class="cta-row" style="margin-top:18px;"><CtaButton /></div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CtaButton from "../../components/CtaButton.astro";
+import { packages } from "../../data/packages";
+
+export function getStaticPaths() {
+  return packages.map((pkg) => ({
+    params: { slug: pkg.slug },
+    props: { pkg }
+  }));
+}
+
+const { pkg } = Astro.props;
+
+const meta = {
+  title: `${pkg.name} | Nebrex Automations`,
+  description: `${pkg.name}: ${pkg.description} Built for Calgary small businesses that want simple systems that actually get used.`,
+  canonical: `https://nebrex.ca/packages/${pkg.slug}/`,
+  ogTitle: `${pkg.name} | Nebrex Automations`,
+  ogDescription: pkg.description,
+  ogUrl: `https://nebrex.ca/packages/${pkg.slug}/`,
+  ogImage: "https://nebrex.ca/og-image.png",
+  jsonLd: ""
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">Package</div>
+      <h1>{pkg.name}</h1>
+      <p>{pkg.description}</p>
+      <div class="cta-row"><CtaButton /><a class="btn btn-outline" href="/pricing.html">View all packages</a></div>
+    </div>
+    <div class="hero-card">
+      <h3>{pkg.focus}</h3>
+      <ul class="hero-list">
+        {pkg.outcomes.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">What is included</div>
+    <h2>A clear system your team can understand</h2>
+    <p class="section-sub">Each package is built around practical outcomes, simple setup, and customer communication that feels natural for a local business.</p>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>{pkg.name} includes</h3>
+          <ul>
+            {pkg.includes.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h3>Best for</h3>
+          <p>{pkg.bestFor}</p>
+          <div class="cta-row" style="margin-top:18px;"><CtaButton /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Why it helps</div>
+    <h2>Built to remove the gap, not add more complexity</h2>
+    <div class="grid-3">
+      {pkg.outcomes.map((item) => (
+        <div class="card">
+          <h4>{item}</h4>
+          <p>Designed as part of a simple Nebrex system, so the improvement is easy to understand, use, and build on over time.</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <div class="section-title">Next step</div>
+          <h3>See if {pkg.name} fits your business.</h3>
+          <p class="section-sub">We can help you choose the right starting point and map the simplest version to launch first.</p>
+        </div>
+        <div class="cta-row"><CtaButton /></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

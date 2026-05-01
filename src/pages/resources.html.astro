@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaButton from "../components/CtaButton.astro";
+
+const meta = {
+  "title": "Resources | Nebrex Automations",
+  "description": "Guides for Calgary small businesses improving websites, lead response, follow-up, and customer communication.",
+  "canonical": "https://nebrex.ca/resources.html",
+  "ogTitle": "Resources | Nebrex Automations",
+  "ogDescription": "Practical resources for local businesses that want better websites, faster replies, and better follow-up.",
+  "ogUrl": "https://nebrex.ca/resources.html",
+  "ogImage": "https://nebrex.ca/og-image.png",
+  "jsonLd": ""
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">Resources</div>
+      <h1>Practical guides for local business growth</h1>
+      <p>Use these resources to improve your website, respond faster, follow up better, and reduce manual admin.</p>
+      <div class="cta-row"><CtaButton /></div>
+    </div>
+    <div class="hero-card">
+      <h3>Read first</h3>
+      <ul class="hero-list">
+        <li>How to tell if your website is costing you leads</li>
+        <li>Simple lead response checklist</li>
+        <li>Follow-up system for small businesses</li>
+        <li>What to automate first</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Featured Articles</div>
+    <h2>Simple playbooks for better customer flow</h2>
+    <div class="grid-3">
+      <div class="card"><h4>Website First Impression Checklist</h4><p>How to make your business easier to trust and contact.</p></div>
+      <div class="card"><h4>How Local Businesses Reply Faster</h4><p>A practical response flow for calls, forms, chat, and emails.</p></div>
+      <div class="card"><h4>Follow-Up System for Quotes and Inquiries</h4><p>Keep conversations moving without awkward manual chasing.</p></div>
+      <div class="card"><h4>AI Chat Without the Weirdness</h4><p>How to use chat in a simple, helpful, human-reviewed way.</p></div>
+      <div class="card"><h4>Google Business Profile Basics</h4><p>Support local trust with cleaner online presence signals.</p></div>
+      <div class="card"><h4>What to Automate First</h4><p>Start with the repetitive work that slows down customer communication.</p></div>
+    </div>
+  </section>
+
+  <section><div class="cta-row"><CtaButton /></div></section>
+</BaseLayout>

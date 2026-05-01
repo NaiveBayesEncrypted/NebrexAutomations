@@ -1,0 +1,243 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaButton from "../components/CtaButton.astro";
+import PackageGrid from "../components/PackageGrid.astro";
+import { addOns, packages } from "../data/packages";
+
+const growthPackage = packages.find((item) => item.slug === "growth");
+const heroPackages = growthPackage
+  ? [growthPackage, ...packages.filter((item) => item.slug !== "growth")]
+  : packages;
+
+const heroPackageSlides = heroPackages.map((item) => ({
+  kicker: item.focus,
+  title: item.name,
+  description: item.description,
+  href: item.href,
+  cta: item.cta,
+  footer: item.bestFor,
+  rows: item.includes.slice(0, 3).map((label, index) => ({
+    label,
+    detail: item.outcomes[index] || item.description
+  }))
+}));
+
+const meta = {
+  "title": "Websites and AI Systems for Calgary Small Businesses | Nebrex Automations",
+  "description": "Nebrex helps Calgary small businesses improve their website, respond faster, and follow up better without adding more manual work.",
+  "canonical": "https://nebrex.ca/",
+  "ogTitle": "Websites and AI Systems for Calgary Small Businesses | Nebrex Automations",
+  "ogDescription": "Simple growth systems for better websites, faster response, lead capture, follow-up, and customer communication.",
+  "ogUrl": "https://nebrex.ca/",
+  "ogImage": "https://nebrex.ca/og-image.png",
+  "jsonLd": "{\n    \"@context\":\"https://schema.org\",\n    \"@type\":\"LocalBusiness\",\n    \"name\":\"Nebrex Automations\",\n    \"url\":\"https://nebrex.ca\",\n    \"telephone\":\"+14032200220\",\n    \"email\":\"contact@nebrex.ca\",\n    \"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Calgary\",\"addressRegion\":\"AB\",\"addressCountry\":\"CA\"},\n    \"areaServed\":[\"Calgary\",\"Airdrie\",\"Cochrane\",\"Okotoks\",\"Chestermere\",\"Canada\"]\n  }"
+};
+---
+
+<BaseLayout {...meta} bodyClass="home-page-body">
+  <div class="home-page">
+    <section class="hero hero-premium" id="top">
+      <div>
+        <div class="eyebrow">Built for Calgary small businesses</div>
+        <h1>Websites and AI systems that help local businesses win more business.</h1>
+        <p>Nebrex helps Calgary small businesses improve their website, respond faster, and follow up better without adding more manual work.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#packages">See Packages</a>
+          <CtaButton class="btn btn-outline" />
+        </div>
+        <div class="hero-proof-row" aria-label="Trust signals">
+          <span>Calgary-first</span>
+          <span>Simple setup</span>
+          <span>Built around your current tools</span>
+        </div>
+      </div>
+      <div class="hero-card audit-panel package-carousel" id="heroPackageCarousel" data-slides={JSON.stringify(heroPackageSlides)}>
+        <div class="panel-kicker" data-package-kicker>{heroPackageSlides[0].kicker}</div>
+        <h3 data-package-title>{heroPackageSlides[0].title}</h3>
+        <p data-package-description>{heroPackageSlides[0].description}</p>
+        <ul class="audit-list">
+          {heroPackageSlides[0].rows.map((row) => (
+            <li><strong data-package-row-label>{row.label}</strong><span data-package-row-detail>{row.detail}</span></li>
+          ))}
+        </ul>
+        <div class="audit-panel-footer">
+          <span data-package-footer>{heroPackageSlides[0].footer}</span>
+          <a class="btn btn-primary" href={heroPackageSlides[0].href} data-package-cta>{heroPackageSlides[0].cta}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Local business fit">
+      <div><span class="trust-stat">Calgary</span><span>built for local small businesses</span></div>
+      <div><span class="trust-stat">Fast</span><span>setup without heavy complexity</span></div>
+      <div><span class="trust-stat">Human</span><span>reviewed systems and messaging</span></div>
+      <div><span class="trust-stat">Simple</span><span>designed to actually get used</span></div>
+    </section>
+
+    <section>
+      <div class="section-title">The problem</div>
+      <h2>Where small businesses lose business</h2>
+      <p class="section-sub">Most small businesses do not need more tools. They need a better system.</p>
+      <div class="grid-3">
+        <div class="card elevated-card problem-card">
+          <span class="problem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h8"/><path d="M12 5v14"/><path d="M16 7l4 5-4 5"/></svg></span>
+          <h4>Slow replies</h4>
+          <p>New inquiries come in, but no one follows up fast enough. By the time someone answers, the customer has already moved on.</p>
+          <span class="problem-tag">Lost leads</span>
+        </div>
+        <div class="card elevated-card problem-card">
+          <span class="problem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 6h14v12H5z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg></span>
+          <h4>Weak websites</h4>
+          <p>The website looks fine, but it does not guide visitors to call, book, or contact the business clearly.</p>
+          <span class="problem-tag">Low conversion</span>
+        </div>
+        <div class="card elevated-card problem-card">
+          <span class="problem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 7h8"/><path d="M6 12h12"/><path d="M6 17h6"/><path d="M17 15l2 2 3-4"/></svg></span>
+          <h4>Missed follow-up</h4>
+          <p>Leads come in, but quotes, reminders, and next steps do not happen consistently after the first contact.</p>
+          <span class="problem-tag">Lost customer</span>
+        </div>
+        <div class="card elevated-card problem-card">
+          <span class="problem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 5h10"/><path d="M8 5v5a4 4 0 0 0 8 0V5"/><path d="M8 19v-5a4 4 0 0 1 8 0v5"/><path d="M7 19h10"/></svg></span>
+          <h4>Too much manual work</h4>
+          <p>Staff spend time answering the same questions, chasing people manually, and updating things that should already be automated.</p>
+          <span class="problem-tag">Admin time</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages">
+      <div class="section-title">Packages</div>
+      <h2>Simple systems for growing local businesses</h2>
+      <p class="section-sub">Choose the package that fits where your business is today. Start simple, then expand over time.</p>
+      <PackageGrid />
+    </section>
+
+    <section>
+      <div class="section-title">How it works</div>
+      <h2>How Nebrex helps your business grow</h2>
+      <div class="steps">
+        <div class="step"><span class="step-number">1</span><span class="step-text">Improve your online presence with a cleaner website that makes it easier for people to trust and contact you.</span></div>
+        <div class="step"><span class="step-number">2</span><span class="step-text">Respond faster to new inquiries with chat, forms, and follow-up tools so leads do not go cold.</span></div>
+        <div class="step"><span class="step-number">3</span><span class="step-text">Follow up more consistently, reduce manual work, and keep customer communication moving.</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Why Nebrex</div>
+      <h2>Built to be simple</h2>
+      <div class="grid-3">
+        <div class="card"><h4>Fast setup</h4><p>Start with the highest-impact system first, then build from there.</p></div>
+        <div class="card"><h4>Works with the tools you already use</h4><p>We keep your setup practical instead of forcing unnecessary platform changes.</p></div>
+        <div class="card"><h4>Human-reviewed systems</h4><p>Messages, handoffs, and workflows are reviewed so the customer experience feels clear and professional.</p></div>
+        <div class="card"><h4>Ongoing support available</h4><p>Keep improving your website, chatbot, follow-up, and reporting month after month.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Add-ons</div>
+      <h2>Optional add-ons</h2>
+      <div class="grid-3">
+        {addOns.map((item) => (
+          <div class="card"><h4>{item}</h4><p>Add this when your business is ready for a more complete system.</p></div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">FAQ</div>
+      <h2>Common questions before you start</h2>
+      <div class="faq">
+        <details><summary>Is Nebrex only for contractors?</summary><p>No. Nebrex is built for Calgary small businesses first, including service businesses, local shops, clinics, home services, and other teams that need better online presence, faster response, and stronger follow-up.</p></details>
+        <details><summary>Do I need to replace my current tools?</summary><p>Usually no. We look at what you already use first and build the simplest system that improves your customer flow.</p></details>
+        <details><summary>Can I start with just a website?</summary><p>Yes. Nebrex Presence is built for businesses that need a cleaner, more professional website before adding chat or automation.</p></details>
+        <details><summary>Will the AI chat sound robotic?</summary><p>No. The goal is clear, helpful customer communication that fits your business. We keep the system practical and human-reviewed.</p></details>
+        <details><summary>What package should most businesses start with?</summary><p>Nebrex Growth is the main fit when you want your website, lead response, and follow-up working together. If you only need one piece first, start with the simpler package that matches your biggest gap.</p></details>
+      </div>
+    </section>
+
+    <section class="home-final">
+      <div class="offer">
+        <div class="offer-grid">
+          <div>
+            <div class="section-title">Next step</div>
+            <h3>Start with the system that fits your business today.</h3>
+            <p class="section-sub">Whether you need a better website, faster lead response, or a more connected setup, Nebrex can help you start simple and build from there.</p>
+          </div>
+          <div class="cta-row">
+            <CtaButton />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var carousel = document.getElementById('heroPackageCarousel');
+      if (!carousel) return;
+
+      var slides = [];
+      try {
+        slides = JSON.parse(carousel.getAttribute('data-slides') || '[]');
+      } catch (error) {
+        slides = [];
+      }
+
+      if (slides.length < 2) return;
+
+      var kicker = carousel.querySelector('[data-package-kicker]');
+      var title = carousel.querySelector('[data-package-title]');
+      var description = carousel.querySelector('[data-package-description]');
+      var footer = carousel.querySelector('[data-package-footer]');
+      var cta = carousel.querySelector('[data-package-cta]');
+      var rowLabels = carousel.querySelectorAll('[data-package-row-label]');
+      var rowDetails = carousel.querySelectorAll('[data-package-row-detail]');
+      var index = 0;
+      var paused = false;
+      var intervalId = 0;
+
+      function renderSlide(nextIndex) {
+        var slide = slides[nextIndex];
+        if (!slide) return;
+
+        carousel.classList.add('is-changing');
+
+        window.setTimeout(function () {
+          kicker.textContent = slide.kicker || 'Nebrex package';
+          title.textContent = slide.title;
+          description.textContent = slide.description;
+          footer.textContent = slide.footer || '';
+          cta.textContent = slide.cta || 'View package';
+          cta.href = slide.href || '#packages';
+
+          for (var i = 0; i < rowLabels.length; i += 1) {
+            var row = slide.rows && slide.rows[i];
+            if (!row) continue;
+            rowLabels[i].textContent = row.label;
+            rowDetails[i].textContent = row.detail;
+          }
+
+          carousel.classList.remove('is-changing');
+        }, 150);
+      }
+
+      function nextSlide() {
+        if (paused) return;
+        index = (index + 1) % slides.length;
+        renderSlide(index);
+      }
+
+      carousel.addEventListener('mouseenter', function () { paused = true; });
+      carousel.addEventListener('mouseleave', function () { paused = false; });
+      carousel.addEventListener('focusin', function () { paused = true; });
+      carousel.addEventListener('focusout', function () { paused = false; });
+
+      intervalId = window.setInterval(nextSlide, 5000);
+
+      window.addEventListener('pagehide', function () {
+        window.clearInterval(intervalId);
+      });
+    })();
+  </script>
+</BaseLayout>

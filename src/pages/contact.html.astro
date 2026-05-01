@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const meta = {
+  "title": "Book a Call | Nebrex Automations",
+  "description": "Book a call with Nebrex to choose the right website, lead response, follow-up, or growth system for your local business.",
+  "canonical": "https://nebrex.ca/contact.html",
+  "ogTitle": "Book a Call | Nebrex Automations",
+  "ogDescription": "Talk to Nebrex about a simple growth system for your Calgary small business.",
+  "ogUrl": "https://nebrex.ca/contact.html",
+  "ogImage": "https://nebrex.ca/og-image.png",
+  "jsonLd": ""
+};
+---
+
+<BaseLayout {...meta}>
+<section>
+  <div class="section-title">Book a Call</div>
+  <h1>Find the right system for your business</h1>
+  <p class="section-sub">Tell us where your business needs help: a better website, faster lead response, stronger follow-up, or a more connected setup.</p>
+  <div class="contact">
+    <div class="contact-grid">
+      <div>
+        <h3>Direct contact</h3>
+        <address>
+          <p>Phone: <a href="tel:+14032200220">(403) 220-0220</a></p>
+          <p>Email: <a href="mailto:contact@nebrex.ca">contact@nebrex.ca</a></p>
+        </address>
+        <h3 class="contact-subheading">What happens next</h3>
+        <ul class="hero-list">
+          <li>Step 1: We review your business and current customer flow.</li>
+          <li>Step 2: We talk through the biggest gap and best package fit.</li>
+          <li>Step 3: You receive a simple next-step plan.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Request form</h3>
+        <form id="demoForm" action="https://formspree.io/f/xpwzgkvq" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New Call Request - Nebrex Automations">
+          <label for="name" class="visually-hidden">Your name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
+          <label for="business" class="visually-hidden">Business name</label>
+          <input type="text" id="business" name="business" placeholder="Business name" required autocomplete="organization">
+          <label for="email" class="visually-hidden">Email</label>
+          <input type="email" id="email" name="email" placeholder="Best email" required autocomplete="email">
+          <label for="phone" class="visually-hidden">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Phone number" required autocomplete="tel">
+          <label for="trade" class="visually-hidden">Business type</label>
+          <select id="trade" name="business_type" required>
+            <option value="" disabled selected>What type of business are you?</option>
+            <option>Home service business</option>
+            <option>Local service business</option>
+            <option>Retail or local shop</option>
+            <option>Clinic or appointment-based business</option>
+            <option>Contractor or trade business</option>
+            <option>Other</option>
+          </select>
+          <label for="notes" class="visually-hidden">Biggest need</label>
+          <textarea id="notes" name="notes" rows="4" placeholder="Biggest need: website, faster response, follow-up, or less manual admin" required></textarea>
+          <button class="btn btn-primary" type="submit">Book a Call</button>
+          <div class="form-status" id="formStatus" role="alert"></div>
+          <small>By submitting, you consent to follow-up about your request.</small>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <script is:inline>
+    var form=document.getElementById('demoForm');var formStatus=document.getElementById('formStatus');form.addEventListener('submit',function(e){var required=form.querySelectorAll('[required]');var ok=true;required.forEach(function(field){if(!field.value.trim()){ok=false;field.style.borderColor='#ff6b6b';}else{field.style.borderColor='';}});if(!ok){e.preventDefault();formStatus.textContent='Please fill in all required fields.';formStatus.className='form-status visible error';}});
+  </script>
+</BaseLayout>
+
+
+
+

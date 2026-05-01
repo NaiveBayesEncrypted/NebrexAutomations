@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaButton from "../components/CtaButton.astro";
+import PackageGrid from "../components/PackageGrid.astro";
+import { addOns } from "../data/packages";
+
+const meta = {
+  "title": "Services | Nebrex Automations",
+  "description": "Outcome-based website, AI chat, lead capture, follow-up, and automation systems for Calgary small businesses.",
+  "canonical": "https://nebrex.ca/services.html",
+  "ogTitle": "Services | Nebrex Automations",
+  "ogDescription": "Simple growth systems for local businesses: better website, faster response, better follow-up, and less manual work.",
+  "ogUrl": "https://nebrex.ca/services.html",
+  "ogImage": "https://nebrex.ca/og-image.png",
+  "jsonLd": ""
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">Services</div>
+      <h1>Simple business systems, not random services</h1>
+      <p>Nebrex combines websites, AI chat, lead capture, follow-up, and simple automation into systems that help local businesses win more business.</p>
+      <div class="cta-row"><a class="btn btn-primary" href="#packages">See Packages</a><CtaButton class="btn btn-outline" /></div>
+    </div>
+    <div class="hero-card">
+      <h3>What the systems solve</h3>
+      <ul class="hero-list">
+        <li>Poor first impressions</li>
+        <li>Slow lead response</li>
+        <li>Weak follow-up</li>
+        <li>Too much manual admin</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="packages">
+    <div class="section-title">Packages</div>
+    <h2>Simple systems for growing local businesses</h2>
+    <p class="section-sub">Start with the package that matches your biggest gap, then expand over time.</p>
+    <PackageGrid />
+  </section>
+
+  <section>
+    <div class="section-title">How it works</div>
+    <h2>Built around outcomes your business can feel</h2>
+    <div class="grid-3">
+      <div class="card"><h4>Better website</h4><p>Improve the first impression, explain your services clearly, and make it easier for customers to contact you.</p></div>
+      <div class="card"><h4>Faster response</h4><p>Use chat, forms, alerts, and missed-call text back so more inquiries turn into real conversations.</p></div>
+      <div class="card"><h4>Better follow-up</h4><p>Keep quotes, appointments, reviews, and customer updates moving without adding more manual work.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Add-ons</div>
+    <h2>Expand when the core system is working</h2>
+    <div class="grid-3">
+      {addOns.map((item) => (
+        <div class="card"><h4>{item}</h4><p>Add this when your business needs a more complete setup.</p></div>
+      ))}
+    </div>
+    <div class="cta-row" style="margin-top:18px;"><CtaButton /></div>
+  </section>
+</BaseLayout>

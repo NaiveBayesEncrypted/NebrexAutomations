@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaButton from "../components/CtaButton.astro";
+
+const meta = {
+  "title": "Results | Nebrex Automations",
+  "description": "Examples of local business improvements from clearer websites, faster lead response, and better follow-up.",
+  "canonical": "https://nebrex.ca/results.html",
+  "ogTitle": "Results | Nebrex Automations",
+  "ogDescription": "Practical outcomes from small-business growth systems.",
+  "ogUrl": "https://nebrex.ca/results.html",
+  "ogImage": "https://nebrex.ca/og-image.png",
+  "jsonLd": ""
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">Results</div>
+      <h1>Better customer flow shows up in simple ways</h1>
+      <p>The goal is practical improvement: a stronger first impression, faster replies, cleaner follow-up, and less manual admin.</p>
+      <div class="cta-row"><CtaButton /></div>
+    </div>
+    <div class="hero-card">
+      <h3>What improves</h3>
+      <ul class="hero-list">
+        <li>More visitors understand what to do next</li>
+        <li>New inquiries get handled faster</li>
+        <li>Follow-up becomes more consistent</li>
+        <li>Staff spend less time chasing basics</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Examples</div>
+    <h2>Common wins for local businesses</h2>
+    <div class="grid-3">
+      <div class="card"><h4>Clearer website</h4><p>Customers understand your services faster and have an easier path to contact you.</p></div>
+      <div class="card"><h4>Faster response</h4><p>Calls, forms, and chat inquiries get a cleaner handoff to your team.</p></div>
+      <div class="card"><h4>Better follow-up</h4><p>Appointments, quotes, reviews, and updates move forward with less manual chasing.</p></div>
+    </div>
+  </section>
+
+  <section><div class="section-title">Next Step</div><h2>Build the system that fits your business today</h2><p class="section-sub">Start with the biggest gap, then expand over time.</p><div class="cta-row"><CtaButton /></div></section>
+</BaseLayout>

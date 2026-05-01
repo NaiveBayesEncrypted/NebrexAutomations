@@ -1,0 +1,152 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogUrl?: string;
+  ogImage?: string;
+  jsonLd?: string;
+  bodyClass?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogTitle,
+  ogDescription,
+  ogUrl,
+  ogImage = "https://nebrex.ca/og-image.png",
+  jsonLd,
+  bodyClass
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={ogTitle || title} />
+    {ogDescription || description ? <meta property="og:description" content={ogDescription || description} /> : null}
+    <meta property="og:url" content={ogUrl || canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+    <link rel="shortcut icon" href="/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" href="/favicon-48x48.png?v=2" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/favicon-48x48.png?v=2" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+    <meta name="theme-color" content="#0A0A0F" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Michroma&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
+  </head>
+  <body class:list={["site-page-body", bodyClass]}>
+    <canvas class="site-wave-field" id="siteWaveField" aria-hidden="true"></canvas>
+    <div class="ambient-lines" aria-hidden="true"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <Header />
+    <main class="wrap" id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <script src="/scripts/nav-solutions.js" defer></script>
+    <script src="/scripts/nav-main.js" defer></script>
+    <script is:inline>
+      (function () {
+        var canvas = document.getElementById('siteWaveField');
+        if (!canvas) return;
+
+        var ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var width = 0;
+        var height = 0;
+        var dpr = 1;
+        var points = [];
+        var rafId = 0;
+        var spacing = 18;
+
+        function resize() {
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          width = window.innerWidth;
+          height = Math.max(window.innerHeight * 1.15, 780);
+          canvas.width = Math.floor(width * dpr);
+          canvas.height = Math.floor(height * dpr);
+          canvas.style.width = width + 'px';
+          canvas.style.height = height + 'px';
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          spacing = width < 640 ? 20 : 18;
+          points = [];
+
+          for (var y = -spacing; y <= height + spacing; y += spacing) {
+            for (var x = -spacing; x <= width + spacing; x += spacing) {
+              points.push({ x: x, y: y });
+            }
+          }
+        }
+
+        function draw(time) {
+          var t = time * 0.00045;
+          ctx.clearRect(0, 0, width, height);
+
+          var gradient = ctx.createLinearGradient(0, 0, width, height);
+          gradient.addColorStop(0, 'rgba(240,237,232,0.05)');
+          gradient.addColorStop(0.38, 'rgba(240,237,232,0.62)');
+          gradient.addColorStop(1, 'rgba(240,237,232,0.1)');
+          ctx.fillStyle = gradient;
+
+          for (var i = 0; i < points.length; i++) {
+            var p = points[i];
+            var nx = p.x / width;
+            var ny = p.y / height;
+            var wave =
+              Math.sin(nx * 9.5 + t * 2.8) * 26 +
+              Math.cos(ny * 12.5 - t * 2.2) * 22 +
+              Math.sin((nx + ny) * 13 + t * 1.8) * 14;
+            var fold = Math.sin((nx * 2.2 - ny * 3.1 + t) * Math.PI) * 44;
+            var x = p.x + Math.sin(ny * 16 + t * 3.2) * 18 + fold * 0.28;
+            var y = p.y + wave;
+            var centerPull = 1 - Math.min(1, Math.hypot(nx - 0.58, ny - 0.38) * 1.35);
+            var alpha = 0.12 + centerPull * 0.78;
+
+            if (x < -20 || x > width + 20 || y < -20 || y > height + 20) continue;
+
+            ctx.globalAlpha = alpha;
+            ctx.beginPath();
+            ctx.arc(x, y, width < 640 ? 0.85 : 1.05, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          ctx.globalAlpha = 1;
+          if (!reducedMotion) rafId = requestAnimationFrame(draw);
+        }
+
+        resize();
+        draw(0);
+
+        if (!reducedMotion) rafId = requestAnimationFrame(draw);
+        window.addEventListener('resize', function () {
+          cancelAnimationFrame(rafId);
+          resize();
+          draw(0);
+          if (!reducedMotion) rafId = requestAnimationFrame(draw);
+        }, { passive: true });
+      })();
+    </script>
+  </body>
+</html>

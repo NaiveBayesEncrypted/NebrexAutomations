@@ -1,0 +1,11 @@
+---
+import { brand } from "../data/site";
+
+interface Props {
+  class?: string;
+}
+
+const className = Astro.props.class || "btn btn-primary";
+---
+
+<a class={className} href={brand.ctaHref}>{brand.ctaLabel}</a>

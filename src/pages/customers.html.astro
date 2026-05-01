@@ -1,0 +1,197 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaButton from "../components/CtaButton.astro";
+
+const customerExamples = [
+  {
+    name: "Blueprint Collectives",
+    url: "https://blueprintcollectives.ca/",
+    type: "Service-based business",
+    summary: "A brand and service experience that needed to feel clearer, more premium, and easier for new visitors to act on.",
+    packages: ["Nebrex Presence", "Nebrex Flow", "Nebrex Partner"],
+    before: [
+      "The offer needed a clearer online structure",
+      "Customer next steps had to feel more intentional",
+      "Ongoing updates needed a cleaner system"
+    ],
+    after: [
+      "Stronger service presentation",
+      "Clearer customer journey from first visit to inquiry",
+      "A more polished system for keeping the business moving"
+    ],
+    outcome: "A more premium customer experience with clearer paths for visitors to understand the business and take the next step."
+  },
+  {
+    name: "CalWest AI",
+    url: "https://calwestai.com/",
+    type: "Calgary AI service business",
+    summary: "An AI receptionist business built around fast response, call capture, booking support, and local trust.",
+    packages: ["Nebrex Presence", "Nebrex Capture", "Nebrex Growth"],
+    before: [
+      "The offer needed to be explained in simple business language",
+      "Visitors needed to quickly understand the value of 24/7 response",
+      "Lead capture had to support demo and consultation interest"
+    ],
+    after: [
+      "Clearer AI receptionist positioning",
+      "Stronger calls to action for demo interest",
+      "A more direct path from service interest to inquiry"
+    ],
+    outcome: "A stronger lead-generation website for a local AI business, built around clarity, response speed, and customer action."
+  },
+  {
+    name: "Eco Health Clinic",
+    url: "https://ecohomeopathy.ca/",
+    type: "Calgary virtual health practice",
+    summary: "A homeopathic care practice with multiple care areas, virtual consultations, and a need for calm, trustworthy patient communication.",
+    packages: ["Nebrex Presence", "Nebrex Capture", "Nebrex Flow"],
+    before: [
+      "The practice needed to explain care areas without overwhelming visitors",
+      "Booking and discovery-call paths needed to stay easy to find",
+      "Patient education and follow-up had to feel calm and organized"
+    ],
+    after: [
+      "Clearer service and condition pages",
+      "Stronger booking and consultation flow",
+      "A more guided experience for patients exploring care"
+    ],
+    outcome: "A calmer, more trustworthy patient journey that helps visitors understand the practice and move toward consultation."
+  },
+  {
+    name: "K&A Professional Accountants",
+    url: "https://kaapros.com/",
+    type: "Accounting and tax firm",
+    summary: "An established accounting firm with service, industry, intake, and consultation paths that needed to support busy client communication.",
+    packages: ["Nebrex Presence", "Nebrex Flow", "Nebrex Partner"],
+    before: [
+      "Important service and intake paths needed to stay easy to access",
+      "Client communication had to support busy tax and accounting workflows",
+      "The site needed to make consultation and intake feel straightforward"
+    ],
+    after: [
+      "Clearer service navigation",
+      "Better intake and consultation paths",
+      "A more organized front-office flow for new and returning clients"
+    ],
+    outcome: "A more practical client experience for an accounting firm, with clearer paths from service interest to consultation and intake."
+  },
+  {
+    name: "Kevin Teh Real Estate",
+    url: "https://kevintehrealestate.com/",
+    type: "Real estate specialist",
+    summary: "A real estate brand serving buyers, sellers, landlords, tenants, investors, and expats who need clear property guidance and fast communication.",
+    packages: ["Nebrex Presence", "Nebrex Capture", "Nebrex Flow"],
+    before: [
+      "The property services needed to feel clear across buying, selling, renting, and renting out",
+      "Visitors needed faster paths to contact Kevin about their property goals",
+      "The customer journey had to support trust before a high-value property conversation"
+    ],
+    after: [
+      "Clearer real estate service positioning",
+      "Better paths from property interest to inquiry",
+      "A more guided experience for clients comparing options and taking the next step"
+    ],
+    outcome: "A more trustworthy and action-focused property website that helps serious clients understand the services and reach out with less friction."
+  }
+];
+
+const meta = {
+  "title": "Customers | Nebrex Automations",
+  "description": "Client examples showing how Nebrex improves websites, lead capture, follow-up, and customer flow for local businesses.",
+  "canonical": "https://nebrex.ca/customers.html",
+  "ogTitle": "Customers | Nebrex Automations",
+  "ogDescription": "Real client examples from better websites, faster lead response, and stronger follow-up systems.",
+  "ogUrl": "https://nebrex.ca/customers.html",
+  "ogImage": "https://nebrex.ca/og-image.png",
+  "jsonLd": ""
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">Customers</div>
+      <h1>Real examples of better customer flow</h1>
+      <p>Nebrex helps small businesses make their website clearer, capture more serious inquiries, and keep follow-up moving without adding more manual work.</p>
+      <div class="cta-row"><CtaButton /></div>
+    </div>
+    <div class="hero-card">
+      <h3>What the work improves</h3>
+      <ul class="hero-list">
+        <li>Clearer first impression</li>
+        <li>Better inquiry and booking paths</li>
+        <li>More consistent follow-up</li>
+        <li>Less manual coordination</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Client examples</div>
+    <h2>Different businesses, same system-first approach</h2>
+    <p class="section-sub">Each example uses the same Nebrex package logic: improve the online presence, capture demand better, and make follow-up easier to maintain.</p>
+    <div class="grid-3">
+      {customerExamples.map((client) => (
+        <a class="card elevated-card" href={client.url} target="_blank" rel="noopener noreferrer">
+          <span class="card-number">{client.type}</span>
+          <h4>{client.name}</h4>
+          <p>{client.summary}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  {customerExamples.map((client, index) => (
+    <section>
+      <div class="section-title">Example {String(index + 1).padStart(2, "0")}</div>
+      <h2>{client.name}</h2>
+      <p class="section-sub">{client.summary}</p>
+      <div class="offer customer-example-card">
+        <div class="offer-grid customer-example-grid">
+          <div class="customer-detail-stack">
+            <div class="customer-detail-block">
+              <h3>Before</h3>
+              <ul>
+                {client.before.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div class="customer-detail-block">
+              <h3>What improved</h3>
+              <ul>
+                {client.after.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </div>
+          <div class="customer-detail-stack">
+            <div class="customer-detail-block">
+              <h3>Packages used</h3>
+              <ul>
+                {client.packages.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div class="customer-detail-block">
+              <h3>Customer flow outcome</h3>
+              <p>{client.outcome}</p>
+            </div>
+            <div class="cta-row" style="margin-top:18px;">
+              <a class="btn btn-outline" href={client.url} target="_blank" rel="noopener noreferrer">View Client Site</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="customer-final-cta">
+    <div class="offer">
+      <div>
+        <div class="section-title">Next Step</div>
+        <h2>Want your business to feel this clear?</h2>
+        <p class="section-sub">We can help you choose the Nebrex package that matches your biggest gap today.</p>
+      </div>
+      <div class="cta-row">
+        <CtaButton />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

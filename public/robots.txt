@@ -1,0 +1,6 @@
+﻿User-agent: *
+Allow: /
+Disallow: /_backups/
+Disallow: /11_Blueprint/
+
+Sitemap: https://nebrex.ca/sitemap.xml

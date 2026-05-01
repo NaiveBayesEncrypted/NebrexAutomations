@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Michroma&amp;display=swap');
+  </style>
+  <rect width="100" height="100" rx="24" fill="#0A0A0F"/>
+  <text x="28" y="68" font-family="Michroma, system-ui, sans-serif"
+        font-weight="800" font-size="38"
+        fill="#F0EDE8">N</text>
+  <text x="55" y="68" font-family="Michroma, system-ui, sans-serif"
+        font-weight="800" font-size="46"
+        letter-spacing="-1" transform="scale(1.1, 1) translate(-3, 0)"
+        fill="#F0EDE8">X</text>
+</svg>

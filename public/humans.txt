@@ -9,7 +9,7 @@ Phone: +1-403-220-0220
 Brand line: Nebrex
 Descriptor: Website, AI chat, lead capture, and follow-up systems for Canadian small businesses
 Tone: Confident, precise, practical
-Core promise: Improve the website, respond faster, follow up better, and reduce manual work.
+Core promise: Automate repetitive work, improve response speed, and run operations with fewer bottlenecks.
 
 /* OFFER */
 Core pricing (CAD):
@@ -31,5 +31,4 @@ Robots: https://nebrex.ca/robots.txt
 
 /* LAST UPDATED */
 Date: 2026-02-17
-
 

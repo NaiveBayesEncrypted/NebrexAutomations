@@ -1,0 +1,45 @@
+---
+import { brand, navLinks, solutions } from "../data/site";
+---
+
+<header>
+  <div class="wrap">
+    <nav role="navigation" aria-label="Main navigation">
+      <a href={brand.homeHref} class="logo" aria-label={brand.name + " - home"}>
+        <span class="logo-mark" aria-hidden="true"><span class="mark-n">N</span><span class="mark-x">X</span></span>
+        <span class="logo-text">
+          <span class="logo-word">NEBRE<span class="logo-x">X</span></span>
+          <span class="logo-sub">{brand.logoSub}</span>
+        </span>
+      </a>
+
+      <button class="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href={navLinks[0].href}>{navLinks[0].label}</a>
+        <div class="nav-dropdown" id="solutionsDropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">Solutions</button>
+          <div class="nav-dropdown-menu nav-solutions-menu" role="menu" aria-label="Solutions" data-solutions-menu="root">
+            {solutions.map((item) => (
+              <a href={"/solutions/" + item.slug + "/"} class="solution-item" role="menuitem">
+                <span class="solution-icon" aria-hidden="true">{item.icon}</span>
+                <span class="solution-copy">
+                  <strong>{item.title}</strong>
+                  <small>{item.desc}</small>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+        {navLinks.slice(1).map((link) => <a href={link.href}>{link.label}</a>)}
+        <a href={brand.ctaHref} class="nav-mobile-only nav-mobile-primary">{brand.ctaLabel}</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href={brand.ctaHref} class="btn btn-primary nav-cta">{brand.ctaLabel}</a>
+      </div>
+    </nav>
+  </div>
+</header>
