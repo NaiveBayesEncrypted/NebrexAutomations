@@ -1,0 +1,212 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaButton from "../components/CtaButton.astro";
+import { brand } from "../data/site";
+import { canonical, graph, ogImage, organizationSchema } from "../data/seo";
+
+const pageUrl = canonical("/careers.html");
+
+const roles = [
+  {
+    title: "Sales Growth Advisor",
+    type: "Sales",
+    location: "Calgary-first, remote-friendly",
+    commitment: "Part-time or contract to start",
+    summary: "Help local business owners understand where their website, lead response, and follow-up are slowing growth, then guide them toward the right Nebrex package.",
+    focus: ["Outbound and warm lead conversations", "Discovery calls with small businesses", "Simple audits and follow-up notes", "Package recommendations", "CRM updates and clean handoff"],
+    fit: ["You communicate clearly without sounding pushy.", "You understand local business pain points.", "You can ask good questions and listen well.", "You are comfortable with follow-up and pipeline discipline."],
+    outcomes: ["Booked audit calls", "Clear notes after each conversation", "Better lead qualification", "Smooth handoff from sales to implementation"],
+    applySubject: "Sales Growth Advisor"
+  },
+  {
+    title: "Technical Implementation Specialist",
+    type: "Tech",
+    location: "Remote-friendly, Calgary overlap preferred",
+    commitment: "Contract or project-based to start",
+    summary: "Build and support practical website, chatbot, lead capture, and follow-up systems for small businesses using clean, simple implementation.",
+    focus: ["Website page updates and QA", "Chatbot and lead form setup", "Automation workflow configuration", "Integrations and testing", "Launch support and documentation"],
+    fit: ["You care about clean customer experience, not just tools.", "You can troubleshoot calmly and document what changed.", "You understand websites, forms, automations, and basic integrations.", "You can keep systems simple enough for small teams to use."],
+    outcomes: ["Working client systems", "Clear launch checklists", "Reliable forms, alerts, and follow-up flows", "Useful notes for ongoing support"],
+    applySubject: "Technical Implementation Specialist"
+  },
+  {
+    title: "Operations and Admin Coordinator",
+    type: "Admin",
+    location: "Calgary-first, remote-friendly",
+    commitment: "Part-time to start",
+    summary: "Keep Nebrex organized behind the scenes by supporting client communication, scheduling, task tracking, documentation, and follow-up.",
+    focus: ["Scheduling and inbox support", "Client notes and task tracking", "Simple reporting snapshots", "Proposal and onboarding admin", "Follow-up reminders and internal coordination"],
+    fit: ["You are organized, careful, and reliable.", "You write clearly and keep details tidy.", "You like improving small processes.", "You can help a fast-moving team stay calm and consistent."],
+    outcomes: ["Cleaner client communication", "Fewer missed internal steps", "Updated task lists and records", "More consistent operations support"],
+    applySubject: "Operations and Admin Coordinator"
+  }
+];
+
+const jobSchemas = roles.map((role) => ({
+  "@type": "JobPosting",
+  title: role.title,
+  description: `${role.summary} Responsibilities include ${role.focus.join(", ")}. A strong fit: ${role.fit.join(" ")}`,
+  datePosted: "2026-05-18",
+  validThrough: "2026-07-31",
+  employmentType: role.commitment.includes("Part-time") ? "PART_TIME" : "CONTRACTOR",
+  hiringOrganization: {
+    "@type": "Organization",
+    name: "Nebrex Automations",
+    sameAs: "https://nebrex.ca"
+  },
+  jobLocationType: "TELECOMMUTE",
+  applicantLocationRequirements: {
+    "@type": "Country",
+    name: "Canada"
+  },
+  jobLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Calgary",
+      addressRegion: "AB",
+      addressCountry: "CA"
+    }
+  }
+}));
+
+const meta = {
+  title: "Careers at Nebrex | Calgary Small Business Growth Systems",
+  description: "Explore open Nebrex roles in sales, technical implementation, and operations support for practical small-business growth systems.",
+  canonical: pageUrl,
+  ogTitle: "Careers at Nebrex | Calgary Small Business Growth Systems",
+  ogDescription: "Join Nebrex and help small businesses look better online, respond faster, and follow up more consistently.",
+  ogUrl: pageUrl,
+  ogImage,
+  jsonLd: graph([organizationSchema(), ...jobSchemas])
+};
+---
+
+<BaseLayout {...meta}>
+  <section class="hero solutions-hero">
+    <div>
+      <div class="eyebrow">Careers</div>
+      <h1>Help small businesses build better customer flow</h1>
+      <p>Nebrex is building practical website, AI chat, lead capture, follow-up, and automation systems for local businesses that want growth without extra manual work.</p>
+      <div class="cta-row">
+        <a class="btn" href={`mailto:${brand.emailLabel}?subject=Careers%20at%20Nebrex`}>Apply by Email</a>
+        <CtaButton />
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Who fits Nebrex</h3>
+      <ul class="hero-list">
+        <li>Clear communicators</li>
+        <li>Practical problem solvers</li>
+        <li>People who care about small business</li>
+        <li>Builders who keep systems simple</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Open roles</div>
+    <h2>Three ways to help Nebrex grow</h2>
+    <p class="section-sub">These roles are designed to start lean and grow with the company. We care more about reliability, clarity, and useful work than corporate polish.</p>
+    <div class="grid-3">
+      {roles.map((role) => (
+        <a class="card" href={`#${role.title.toLowerCase().replaceAll(" ", "-").replaceAll("and", "and")}`}>
+          <span class="problem-tag">{role.type}</span>
+          <h4>{role.title}</h4>
+          <p>{role.summary}</p>
+          <p>{role.location}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">How we work</div>
+    <h2>Practical, clear, and built around real customers</h2>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>What Nebrex values</h3>
+          <ul>
+            <li>Simple systems that small teams can actually use</li>
+            <li>Clear writing, clean handoffs, and honest follow-up</li>
+            <li>Calm execution without overcomplicating the work</li>
+            <li>Respect for local businesses and their customers</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What the work supports</h3>
+          <ul>
+            <li>Better websites and stronger first impressions</li>
+            <li>Faster response to new inquiries</li>
+            <li>More consistent quote, booking, and review follow-up</li>
+            <li>Less repetitive admin for busy business owners</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {roles.map((role) => (
+    <section id={role.title.toLowerCase().replaceAll(" ", "-").replaceAll("and", "and")}>
+      <div class="section-title">{role.type} role</div>
+      <h2>{role.title}</h2>
+      <div class="offer">
+        <div class="offer-grid">
+          <div>
+            <h3>Role summary</h3>
+            <p class="section-sub">{role.summary}</p>
+            <ul>
+              <li>{role.location}</li>
+              <li>{role.commitment}</li>
+              <li>Reports into Nebrex leadership as the company grows</li>
+            </ul>
+            <h3>What you will own</h3>
+            <ul>
+              {role.focus.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+          <div>
+            <h3>Who this is for</h3>
+            <ul>
+              {role.fit.map((item) => <li>{item}</li>)}
+            </ul>
+            <h3>Success looks like</h3>
+            <ul>
+              {role.outcomes.map((item) => <li>{item}</li>)}
+            </ul>
+            <div class="cta-row">
+              <a class="btn" href={`mailto:${brand.emailLabel}?subject=${encodeURIComponent(role.applySubject + " application")}`}>Apply for this role</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section>
+    <div class="section-title">How to apply</div>
+    <h2>Keep it simple</h2>
+    <div class="steps">
+      <div class="step"><span class="step-number">1</span><span class="step-text">Email your resume or LinkedIn profile to <a href={brand.emailHref}>{brand.emailLabel}</a>.</span></div>
+      <div class="step"><span class="step-number">2</span><span class="step-text">Use the role name in the subject line so we know what you are applying for.</span></div>
+      <div class="step"><span class="step-number">3</span><span class="step-text">Include two or three sentences about why Nebrex and small-business systems interest you.</span></div>
+      <div class="step"><span class="step-number">4</span><span class="step-text">If there is a fit, we will follow up with a short intro conversation.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <div class="section-title">Next step</div>
+          <h3>Want to help build Nebrex?</h3>
+          <p class="section-sub">Send a simple note with the role you are interested in and a few examples of work you are proud of.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn" href={`mailto:${brand.emailLabel}?subject=Careers%20at%20Nebrex`}>Apply by Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
