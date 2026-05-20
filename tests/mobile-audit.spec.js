@@ -53,9 +53,9 @@ for (const route of routes) {
       const errors = await collectPageErrors(page);
       await page.setViewportSize(viewport);
       await page.goto(route, { waitUntil: "networkidle" });
-      await expect(page.locator("header")).toBeVisible();
-      await expect(page.locator("main")).toBeVisible();
-      await expect(page.locator("footer")).toBeVisible();
+      await expect(page.locator("body > header")).toBeVisible();
+      await expect(page.locator("body > main")).toBeVisible();
+      await expect(page.locator("body > footer")).toBeVisible();
       await expect(page.locator(".mobile-menu-btn")).toBeVisible();
 
       const overflow = await page.evaluate(() => {

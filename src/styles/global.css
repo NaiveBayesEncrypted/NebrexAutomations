@@ -489,8 +489,8 @@ button.btn { cursor: pointer; }
   color: var(--ink);
 }
 
-.hero-card h3 { font-size: 18px; margin-bottom: 10px; }
-.hero-list { list-style: none; display: grid; gap: 10px; font-size: 15px; color: var(--slate); }
+.hero-card h3 { font-size: 18px; margin-bottom: 14px; }
+.hero-list { list-style: none; display: grid; gap: 12px; font-size: 15px; line-height: 1.6; color: var(--slate); }
 .hero-list li::before { content: "+"; color: var(--accent); font-weight: 700; margin-right: 8px; }
 
 .signal {
@@ -803,7 +803,7 @@ section { padding: clamp(48px, 7vw, 70px) 0; }
   letter-spacing: 2px;
   color: var(--muted);
 }
-.section-sub { color: var(--slate); margin-top: 12px; max-width: 700px; }
+.section-sub { color: var(--slate); margin-top: 12px; max-width: 700px; line-height: 1.7; }
 
 
 /* -- Grids & Cards -- */
@@ -818,8 +818,9 @@ section { padding: clamp(48px, 7vw, 70px) 0; }
   color: var(--ink);
 }
 
-.card h4 { font-size: 18px; margin-bottom: 10px; }
-.card p { color: var(--slate); font-size: 15px; }
+.card h4 { font-size: 18px; margin-bottom: 12px; }
+.card p { color: var(--slate); font-size: 15px; line-height: 1.65; }
+.card p + p { margin-top: 14px; }
 .card-cta { margin-top: 14px; }
 .card-featured { border: 2px solid var(--accent); }
 
@@ -841,6 +842,8 @@ section { padding: clamp(48px, 7vw, 70px) 0; }
 .offer .section-sub:last-child { margin-bottom: 0; }
 .offer .section-sub + .section-sub { margin-top: 16px; }
 .offer .section-sub + ul { margin-top: 22px; }
+.offer p + h3 { margin-top: 34px; }
+.offer p + ul { margin-top: 22px; }
 .offer ul + h3 { margin-top: 34px; }
 .offer ul { list-style: none; display: grid; gap: 14px; }
 .offer li {
@@ -965,7 +968,7 @@ section { padding: clamp(48px, 7vw, 70px) 0; }
 
 .package-list {
   display: grid;
-  gap: 9px;
+  gap: 12px;
   margin-top: 0;
   list-style: none;
 }
@@ -977,7 +980,7 @@ section { padding: clamp(48px, 7vw, 70px) 0; }
   align-items: start;
   color: var(--slate);
   font-size: 15px;
-  line-height: 1.45;
+  line-height: 1.58;
 }
 
 .package-list li::before {
@@ -1136,7 +1139,7 @@ section { padding: clamp(48px, 7vw, 70px) 0; }
   font-size: 24px;
   margin-bottom: 8px;
 }
-.step-text { display: block; }
+.step-text { display: block; line-height: 1.65; }
 
 
 /* -- Proof & Testimonials -- */
