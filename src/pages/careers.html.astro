@@ -1,54 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CtaButton from "../components/CtaButton.astro";
-import { brand } from "../data/site";
 import { canonical, graph, ogImage, organizationSchema } from "../data/seo";
 
 const pageUrl = canonical("/careers.html");
+const careersEmail = "careers@nebrex.ca";
+const applyHref = `mailto:${careersEmail}?subject=${encodeURIComponent("Sales Representative application - Nebrex")}`;
 
-const roles = [
-  {
-    title: "Sales Growth Advisor",
-    type: "Sales",
-    location: "Calgary-first, remote-friendly",
-    commitment: "Part-time or contract to start",
-    summary: "Help local business owners understand where their website, lead response, and follow-up are slowing growth, then guide them toward the right Nebrex package.",
-    focus: ["Outbound and warm lead conversations", "Discovery calls with small businesses", "Simple audits and follow-up notes", "Package recommendations", "CRM updates and clean handoff"],
-    fit: ["You communicate clearly without sounding pushy.", "You understand local business pain points.", "You can ask good questions and listen well.", "You are comfortable with follow-up and pipeline discipline."],
-    outcomes: ["Booked audit calls", "Clear notes after each conversation", "Better lead qualification", "Smooth handoff from sales to implementation"],
-    applySubject: "Sales Growth Advisor"
-  },
-  {
-    title: "Technical Implementation Specialist",
-    type: "Tech",
-    location: "Remote-friendly, Calgary overlap preferred",
-    commitment: "Contract or project-based to start",
-    summary: "Build and support practical website, chatbot, lead capture, and follow-up systems for small businesses using clean, simple implementation.",
-    focus: ["Website page updates and QA", "Chatbot and lead form setup", "Automation workflow configuration", "Integrations and testing", "Launch support and documentation"],
-    fit: ["You care about clean customer experience, not just tools.", "You can troubleshoot calmly and document what changed.", "You understand websites, forms, automations, and basic integrations.", "You can keep systems simple enough for small teams to use."],
-    outcomes: ["Working client systems", "Clear launch checklists", "Reliable forms, alerts, and follow-up flows", "Useful notes for ongoing support"],
-    applySubject: "Technical Implementation Specialist"
-  },
-  {
-    title: "Operations and Admin Coordinator",
-    type: "Admin",
-    location: "Calgary-first, remote-friendly",
-    commitment: "Part-time to start",
-    summary: "Keep Nebrex organized behind the scenes by supporting client communication, scheduling, task tracking, documentation, and follow-up.",
-    focus: ["Scheduling and inbox support", "Client notes and task tracking", "Simple reporting snapshots", "Proposal and onboarding admin", "Follow-up reminders and internal coordination"],
-    fit: ["You are organized, careful, and reliable.", "You write clearly and keep details tidy.", "You like improving small processes.", "You can help a fast-moving team stay calm and consistent."],
-    outcomes: ["Cleaner client communication", "Fewer missed internal steps", "Updated task lists and records", "More consistent operations support"],
-    applySubject: "Operations and Admin Coordinator"
-  }
-];
-
-const jobSchemas = roles.map((role) => ({
+const jobPostingSchema = {
   "@type": "JobPosting",
-  title: role.title,
-  description: `${role.summary} Responsibilities include ${role.focus.join(", ")}. A strong fit: ${role.fit.join(" ")}`,
-  datePosted: "2026-05-18",
+  title: "Sales Representative - Digital AI Marketing",
+  description: "Nebrex is hiring a commission-only Sales Representative to sell websites, SEO, Google Ads, AI chatbots, lead capture landing pages, AI receptionists, Meta and Facebook Ads, website maintenance, and marketing video production to local businesses across Calgary and beyond.",
+  datePosted: "2026-05-19",
   validThrough: "2026-07-31",
-  employmentType: role.commitment.includes("Part-time") ? "PART_TIME" : "CONTRACTOR",
+  employmentType: ["FULL_TIME", "PART_TIME", "CONTRACTOR"],
+  directApply: true,
   hiringOrganization: {
     "@type": "Organization",
     name: "Nebrex Automations",
@@ -67,18 +32,28 @@ const jobSchemas = roles.map((role) => ({
       addressRegion: "AB",
       addressCountry: "CA"
     }
+  },
+  baseSalary: {
+    "@type": "MonetaryAmount",
+    currency: "CAD",
+    value: {
+      "@type": "QuantitativeValue",
+      minValue: 60000,
+      maxValue: 120000,
+      unitText: "YEAR"
+    }
   }
-}));
+};
 
 const meta = {
-  title: "Careers at Nebrex | Calgary Small Business Growth Systems",
-  description: "Explore open Nebrex roles in sales, technical implementation, and operations support for practical small-business growth systems.",
+  title: "Sales Representative Job | Nebrex Careers",
+  description: "Nebrex is hiring a commission-only Sales Representative for digital AI marketing, websites, SEO, ads, AI chatbots, AI receptionists, and lead capture systems.",
   canonical: pageUrl,
-  ogTitle: "Careers at Nebrex | Calgary Small Business Growth Systems",
-  ogDescription: "Join Nebrex and help small businesses look better online, respond faster, and follow up more consistently.",
+  ogTitle: "Sales Representative Job | Nebrex Careers",
+  ogDescription: "Join Nebrex as a commission-only Sales Representative helping local businesses adopt websites, AI lead capture, ads, and automation systems.",
   ogUrl: pageUrl,
   ogImage,
-  jsonLd: graph([organizationSchema(), ...jobSchemas])
+  jsonLd: graph([organizationSchema(), jobPostingSchema])
 };
 ---
 
@@ -86,112 +61,147 @@ const meta = {
   <section class="hero solutions-hero">
     <div>
       <div class="eyebrow">Careers</div>
-      <h1>Help small businesses build better customer flow</h1>
-      <p>Nebrex is building practical website, AI chat, lead capture, follow-up, and automation systems for local businesses that want growth without extra manual work.</p>
+      <h1>Sales Representative - Digital AI Marketing</h1>
+      <p>Nebrex is looking for driven, results-oriented sales professionals who want to help local businesses improve how they look online, capture more leads, and follow up faster using websites, ads, AI chat, and automation systems.</p>
       <div class="cta-row">
-        <a class="btn" href={`mailto:${brand.emailLabel}?subject=Careers%20at%20Nebrex`}>Apply by Email</a>
-        <CtaButton />
+        <a class="btn" href={applyHref}>Apply by Email</a>
       </div>
     </div>
     <div class="hero-card">
-      <h3>Who fits Nebrex</h3>
+      <h3>Role snapshot</h3>
       <ul class="hero-list">
-        <li>Clear communicators</li>
-        <li>Practical problem solvers</li>
-        <li>People who care about small business</li>
-        <li>Builders who keep systems simple</li>
+        <li>Commission only</li>
+        <li>Remote</li>
+        <li>Full-time or part-time</li>
+        <li>$60,000 - $120,000/year estimated earnings</li>
+        <li>20 - 40 expected hours per week</li>
       </ul>
     </div>
   </section>
 
   <section>
-    <div class="section-title">Open roles</div>
-    <h2>Three ways to help Nebrex grow</h2>
-    <p class="section-sub">These roles are designed to start lean and grow with the company. We care more about reliability, clarity, and useful work than corporate polish.</p>
+    <div class="section-title">About Nebrex</div>
+    <h2>Help local businesses stop missing leads</h2>
+    <div class="offer">
+      <p class="section-sub">Nebrex is a fast-growing digital AI marketing company helping local businesses across Calgary and beyond improve their market presence through practical technology. From AI-powered websites and Google Ads to AI receptionists that answer calls 24/7, Nebrex gives businesses the tools to capture leads, respond faster, and follow up more consistently.</p>
+      <p class="section-sub">We are expanding our sales team and looking for professionals who are ready to bet on themselves, build a pipeline, and earn based on performance.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">The role</div>
+    <h2>What you will do</h2>
     <div class="grid-3">
-      {roles.map((role) => (
-        <a class="card" href={`#${role.title.toLowerCase().replaceAll(" ", "-").replaceAll("and", "and")}`}>
-          <span class="problem-tag">{role.type}</span>
-          <h4>{role.title}</h4>
-          <p>{role.summary}</p>
-          <p>{role.location}</p>
-        </a>
-      ))}
+      <div class="card"><h4>Own the sales cycle</h4><p>Manage the process from first outreach through close, with clear notes and follow-up at every stage.</p></div>
+      <div class="card"><h4>Prospect local businesses</h4><p>Work targeted leads and prospect small businesses across multiple industries.</p></div>
+      <div class="card"><h4>Run demos</h4><p>Conduct product demos that show Nebrex websites, AI tools, ads, and automation systems in action.</p></div>
+      <div class="card"><h4>Explain the value</h4><p>Articulate Nebrex clearly to business owners and decision-makers in practical business language.</p></div>
+      <div class="card"><h4>Manage your pipeline</h4><p>Build and maintain an active pipeline using CRM tools and consistent follow-up.</p></div>
+      <div class="card"><h4>Hit revenue targets</h4><p>Meet or exceed monthly and quarterly revenue goals while providing useful market feedback to leadership.</p></div>
     </div>
   </section>
 
   <section>
-    <div class="section-title">How we work</div>
-    <h2>Practical, clear, and built around real customers</h2>
+    <div class="section-title">Services</div>
+    <h2>What you will be selling</h2>
     <div class="offer">
       <div class="offer-grid">
         <div>
-          <h3>What Nebrex values</h3>
+          <h3>Core offers</h3>
           <ul>
-            <li>Simple systems that small teams can actually use</li>
-            <li>Clear writing, clean handoffs, and honest follow-up</li>
-            <li>Calm execution without overcomplicating the work</li>
-            <li>Respect for local businesses and their customers</li>
+            <li>Website design, build, and maintenance</li>
+            <li>Search Engine Optimization (SEO)</li>
+            <li>Google Ads management</li>
+            <li>AI chatbots and website live chat</li>
+            <li>Meta and Facebook Ads</li>
           </ul>
         </div>
         <div>
-          <h3>What the work supports</h3>
+          <h3>AI and lead systems</h3>
           <ul>
-            <li>Better websites and stronger first impressions</li>
-            <li>Faster response to new inquiries</li>
-            <li>More consistent quote, booking, and review follow-up</li>
-            <li>Less repetitive admin for busy business owners</li>
+            <li>AI-powered lead capture landing pages</li>
+            <li>AI Receptionist - voice agents that handle inbound and outbound calls on minute-based packages</li>
+            <li>Marketing video production as an optional add-on for local businesses</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  {roles.map((role) => (
-    <section id={role.title.toLowerCase().replaceAll(" ", "-").replaceAll("and", "and")}>
-      <div class="section-title">{role.type} role</div>
-      <h2>{role.title}</h2>
-      <div class="offer">
-        <div class="offer-grid">
-          <div>
-            <h3>Role summary</h3>
-            <p class="section-sub">{role.summary}</p>
-            <ul>
-              <li>{role.location}</li>
-              <li>{role.commitment}</li>
-              <li>Reports into Nebrex leadership as the company grows</li>
-            </ul>
-            <h3>What you will own</h3>
-            <ul>
-              {role.focus.map((item) => <li>{item}</li>)}
-            </ul>
-          </div>
-          <div>
-            <h3>Who this is for</h3>
-            <ul>
-              {role.fit.map((item) => <li>{item}</li>)}
-            </ul>
-            <h3>Success looks like</h3>
-            <ul>
-              {role.outcomes.map((item) => <li>{item}</li>)}
-            </ul>
-            <div class="cta-row">
-              <a class="btn" href={`mailto:${brand.emailLabel}?subject=${encodeURIComponent(role.applySubject + " application")}`}>Apply for this role</a>
-            </div>
-          </div>
+  <section>
+    <div class="section-title">Fit</div>
+    <h2>What we are looking for</h2>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>Experience</h3>
+          <ul>
+            <li>2+ years of B2B or direct sales experience</li>
+            <li>SaaS, digital marketing, or tech sales experience is a strong asset</li>
+            <li>Experience with CRM platforms such as GoHighLevel, HubSpot, Salesforce, or similar</li>
+            <li>Familiarity with digital marketing concepts is a bonus, but not required</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Working style</h3>
+          <ul>
+            <li>Comfortable and confident in a commission-only structure</li>
+            <li>Self-starter who can manage schedule, pipeline, and follow-ups independently</li>
+            <li>Strong communicator on video calls, written outreach, and live demos</li>
+            <li>Consultative selling approach: listen first, then solve</li>
+          </ul>
         </div>
       </div>
-    </section>
-  ))}
+    </div>
+  </section>
 
   <section>
-    <div class="section-title">How to apply</div>
-    <h2>Keep it simple</h2>
-    <div class="steps">
-      <div class="step"><span class="step-number">1</span><span class="step-text">Email your resume or LinkedIn profile to <a href={brand.emailHref}>{brand.emailLabel}</a>.</span></div>
-      <div class="step"><span class="step-number">2</span><span class="step-text">Use the role name in the subject line so we know what you are applying for.</span></div>
-      <div class="step"><span class="step-number">3</span><span class="step-text">Include two or three sentences about why Nebrex and small-business systems interest you.</span></div>
-      <div class="step"><span class="step-number">4</span><span class="step-text">If there is a fit, we will follow up with a short intro conversation.</span></div>
+    <div class="section-title">Compensation</div>
+    <h2>Commission-only with uncapped upside</h2>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>Compensation and perks</h3>
+          <ul>
+            <li>Commission only - fully uncapped earnings</li>
+            <li>Estimated annual earnings: $60,000 - $120,000+ based on performance</li>
+            <li>Residual income: every client you sign pays you month after month for as long as they remain a Nebrex customer</li>
+            <li>Leads and prospect lists provided so you can focus on selling</li>
+            <li>Performance bonuses for top closers hitting key revenue milestones</li>
+            <li>Fully remote work</li>
+            <li>Growth opportunity as Nebrex scales</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why residual matters</h3>
+          <p class="section-sub">Your income can grow and compound with every new client added to your book. Close once, earn indefinitely while the client remains with Nebrex.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Who should apply</div>
+    <h2>Be honest about the fit</h2>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>This role is not for you if</h3>
+          <ul>
+            <li>You need a guaranteed base salary</li>
+            <li>You are brand new to sales with no track record</li>
+            <li>You are not comfortable owning your results independently</li>
+          </ul>
+        </div>
+        <div>
+          <h3>This is for you if</h3>
+          <ul>
+            <li>You are a closer who backs yourself</li>
+            <li>You want to build a residual income stream</li>
+            <li>You are hungry, coachable, and ready to grow with a company that is moving fast</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -199,12 +209,12 @@ const meta = {
     <div class="offer">
       <div class="offer-grid">
         <div>
-          <div class="section-title">Next step</div>
-          <h3>Want to help build Nebrex?</h3>
-          <p class="section-sub">Send a simple note with the role you are interested in and a few examples of work you are proud of.</p>
+          <div class="section-title">Apply</div>
+          <h3>Send your resume and cover letter.</h3>
+          <p class="section-sub">To apply, email your resume and cover letter to <a href={applyHref}>{careersEmail}</a>. Use the subject line: Sales Representative application - Nebrex.</p>
         </div>
         <div class="cta-row">
-          <a class="btn" href={`mailto:${brand.emailLabel}?subject=Careers%20at%20Nebrex`}>Apply by Email</a>
+          <a class="btn" href={applyHref}>Email Your Resume</a>
         </div>
       </div>
     </div>
