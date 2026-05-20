@@ -6,7 +6,35 @@ const pageUrl = canonical("/careers.html");
 const careersEmail = "careers@nebrex.ca";
 const applyHref = `mailto:${careersEmail}?subject=${encodeURIComponent("Sales Representative application - Nebrex")}`;
 
-const jobPostingSchema = {
+const roles = [
+  {
+    title: "Sales Representative - Digital AI Marketing",
+    type: "Sales",
+    href: "#sales-representative-digital-ai-marketing",
+    summary: "Commission-only sales role helping local businesses adopt websites, ads, AI chat, AI receptionists, and lead capture systems.",
+    location: "Remote",
+    applySubject: "Sales Representative application - Nebrex"
+  },
+  {
+    title: "Technical Implementation Specialist",
+    type: "Tech",
+    href: "#technical-implementation-specialist",
+    summary: "Project-based technical role building practical website, chatbot, lead capture, and follow-up systems for small businesses.",
+    location: "Remote-friendly, Calgary overlap preferred",
+    applySubject: "Technical Implementation Specialist application - Nebrex"
+  },
+  {
+    title: "Operations and Admin Coordinator",
+    type: "Admin",
+    href: "#operations-and-admin-coordinator",
+    summary: "Part-time admin role supporting scheduling, client notes, task tracking, documentation, and follow-up coordination.",
+    location: "Calgary-first, remote-friendly",
+    applySubject: "Operations and Admin Coordinator application - Nebrex"
+  }
+];
+
+const jobPostingSchemas = [
+  {
   "@type": "JobPosting",
   title: "Sales Representative - Digital AI Marketing",
   description: "Nebrex is hiring a commission-only Sales Representative to sell websites, SEO, Google Ads, AI chatbots, lead capture landing pages, AI receptionists, Meta and Facebook Ads, website maintenance, and marketing video production to local businesses across Calgary and beyond.",
@@ -43,22 +71,61 @@ const jobPostingSchema = {
       unitText: "YEAR"
     }
   }
-};
+  },
+  {
+    "@type": "JobPosting",
+    title: "Technical Implementation Specialist",
+    description: "Nebrex is hiring a Technical Implementation Specialist to build and support website updates, chatbot setup, lead forms, automation workflows, integrations, launch QA, and client documentation.",
+    datePosted: "2026-05-20",
+    validThrough: "2026-07-31",
+    employmentType: ["CONTRACTOR", "PART_TIME"],
+    directApply: true,
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "Nebrex Automations",
+      sameAs: "https://nebrex.ca"
+    },
+    jobLocationType: "TELECOMMUTE",
+    applicantLocationRequirements: {
+      "@type": "Country",
+      name: "Canada"
+    }
+  },
+  {
+    "@type": "JobPosting",
+    title: "Operations and Admin Coordinator",
+    description: "Nebrex is hiring an Operations and Admin Coordinator to support scheduling, inbox support, client notes, task tracking, simple reporting, onboarding admin, and follow-up reminders.",
+    datePosted: "2026-05-20",
+    validThrough: "2026-07-31",
+    employmentType: ["PART_TIME", "CONTRACTOR"],
+    directApply: true,
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "Nebrex Automations",
+      sameAs: "https://nebrex.ca"
+    },
+    jobLocationType: "TELECOMMUTE",
+    applicantLocationRequirements: {
+      "@type": "Country",
+      name: "Canada"
+    }
+  }
+];
 
 const meta = {
-  title: "Sales Representative Job | Nebrex Careers",
-  description: "Nebrex is hiring a commission-only Sales Representative for digital AI marketing, websites, SEO, ads, AI chatbots, AI receptionists, and lead capture systems.",
+  title: "Careers at Nebrex | Sales, Tech & Admin Roles",
+  description: "Nebrex is hiring for sales, technical implementation, and operations/admin roles supporting websites, ads, AI chat, AI receptionists, and automation systems.",
   canonical: pageUrl,
-  ogTitle: "Sales Representative Job | Nebrex Careers",
-  ogDescription: "Join Nebrex as a commission-only Sales Representative helping local businesses adopt websites, AI lead capture, ads, and automation systems.",
+  ogTitle: "Careers at Nebrex | Sales, Tech & Admin Roles",
+  ogDescription: "Join Nebrex and help local businesses adopt practical websites, lead capture, follow-up, ads, and AI automation systems.",
   ogUrl: pageUrl,
   ogImage,
-  jsonLd: graph([organizationSchema(), jobPostingSchema])
+  jsonLd: graph([organizationSchema(), ...jobPostingSchemas])
 };
 ---
 
 <BaseLayout {...meta}>
-  <section class="hero solutions-hero">
+  <section class="hero solutions-hero" id="sales-representative-digital-ai-marketing">
     <div>
       <div class="eyebrow">Careers</div>
       <h1>Sales Representative - Digital AI Marketing</h1>
@@ -76,6 +143,22 @@ const meta = {
         <li>$60,000 - $120,000/year estimated earnings</li>
         <li>20 - 40 expected hours per week</li>
       </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Open roles</div>
+    <h2>Current Nebrex openings</h2>
+    <p class="section-sub">We are hiring for sales, technical implementation, and operations support. Each role has a direct email application link so candidates can send a resume quickly.</p>
+    <div class="grid-3">
+      {roles.map((role) => (
+        <a class="card" href={role.href}>
+          <span class="problem-tag">{role.type}</span>
+          <h4>{role.title}</h4>
+          <p>{role.summary}</p>
+          <p>{role.location}</p>
+        </a>
+      ))}
     </div>
   </section>
 
@@ -200,6 +283,96 @@ const meta = {
             <li>You want to build a residual income stream</li>
             <li>You are hungry, coachable, and ready to grow with a company that is moving fast</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="technical-implementation-specialist">
+    <div class="section-title">Tech role</div>
+    <h2>Technical Implementation Specialist</h2>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>Role summary</h3>
+          <p class="section-sub">Build and support practical website, chatbot, lead capture, and follow-up systems for small businesses using clean, simple implementation.</p>
+          <ul>
+            <li>Remote-friendly, Calgary overlap preferred</li>
+            <li>Contract or project-based to start</li>
+            <li>Reports into Nebrex leadership as the company grows</li>
+          </ul>
+          <h3>What you will own</h3>
+          <ul>
+            <li>Website page updates and QA</li>
+            <li>Chatbot and lead form setup</li>
+            <li>Automation workflow configuration</li>
+            <li>Integrations and testing</li>
+            <li>Launch support and documentation</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Who this is for</h3>
+          <ul>
+            <li>You care about clean customer experience, not just tools</li>
+            <li>You can troubleshoot calmly and document what changed</li>
+            <li>You understand websites, forms, automations, and basic integrations</li>
+            <li>You can keep systems simple enough for small teams to use</li>
+          </ul>
+          <h3>Success looks like</h3>
+          <ul>
+            <li>Working client systems</li>
+            <li>Clear launch checklists</li>
+            <li>Reliable forms, alerts, and follow-up flows</li>
+            <li>Useful notes for ongoing support</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href={`mailto:${careersEmail}?subject=${encodeURIComponent("Technical Implementation Specialist application - Nebrex")}`}>Apply for this role</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="operations-and-admin-coordinator">
+    <div class="section-title">Admin role</div>
+    <h2>Operations and Admin Coordinator</h2>
+    <div class="offer">
+      <div class="offer-grid">
+        <div>
+          <h3>Role summary</h3>
+          <p class="section-sub">Keep Nebrex organized behind the scenes by supporting client communication, scheduling, task tracking, documentation, and follow-up.</p>
+          <ul>
+            <li>Calgary-first, remote-friendly</li>
+            <li>Part-time to start</li>
+            <li>Reports into Nebrex leadership as the company grows</li>
+          </ul>
+          <h3>What you will own</h3>
+          <ul>
+            <li>Scheduling and inbox support</li>
+            <li>Client notes and task tracking</li>
+            <li>Simple reporting snapshots</li>
+            <li>Proposal and onboarding admin</li>
+            <li>Follow-up reminders and internal coordination</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Who this is for</h3>
+          <ul>
+            <li>You are organized, careful, and reliable</li>
+            <li>You write clearly and keep details tidy</li>
+            <li>You like improving small processes</li>
+            <li>You can help a fast-moving team stay calm and consistent</li>
+          </ul>
+          <h3>Success looks like</h3>
+          <ul>
+            <li>Cleaner client communication</li>
+            <li>Fewer missed internal steps</li>
+            <li>Updated task lists and records</li>
+            <li>More consistent operations support</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href={`mailto:${careersEmail}?subject=${encodeURIComponent("Operations and Admin Coordinator application - Nebrex")}`}>Apply for this role</a>
+          </div>
         </div>
       </div>
     </div>
