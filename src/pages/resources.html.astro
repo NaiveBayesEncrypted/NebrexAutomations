@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
-import { canonical, graph, ogImage, organizationSchema, resourceArticles } from "../data/seo";
+import { canonical, collectionPageSchema, graph, ogImage, organizationSchema, resourceArticles } from "../data/seo";
 
 const pageUrl = canonical("/resources.html");
 
@@ -13,7 +13,10 @@ const meta = {
   "ogDescription": "Practical resources for local businesses that want better websites, faster replies, and better follow-up.",
   "ogUrl": pageUrl,
   "ogImage": ogImage,
-  "jsonLd": graph([organizationSchema()])
+  "jsonLd": graph([
+    organizationSchema(),
+    collectionPageSchema("Small Business Growth Resources", "Practical guides for Calgary small businesses improving websites, lead response, AI chat, missed calls, follow-up, and automation.", pageUrl)
+  ])
 };
 ---
 

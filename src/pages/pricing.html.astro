@@ -2,7 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
 import PackageGrid from "../components/PackageGrid.astro";
-import { canonical, graph, ogImage, organizationSchema, serviceSchema } from "../data/seo";
+import { packages } from "../data/packages";
+import { canonical, graph, offerCatalogSchema, ogImage, organizationSchema, webPageSchema } from "../data/seo";
 
 const pageUrl = canonical("/pricing.html");
 
@@ -16,7 +17,8 @@ const meta = {
   "ogImage": ogImage,
   "jsonLd": graph([
     organizationSchema(),
-    serviceSchema("Nebrex pricing and packages", "Website, lead response, follow-up, Growth, and Partner packages for Calgary small businesses.", pageUrl)
+    webPageSchema("Nebrex Pricing & Packages for Calgary Small Businesses", "Transparent Nebrex pricing for website, lead response, follow-up, Growth, and Partner packages built for Calgary small businesses.", pageUrl),
+    offerCatalogSchema("Nebrex packages", "Website, lead response, follow-up, Growth, and Partner packages for Calgary small businesses.", pageUrl, packages)
   ])
 };
 ---

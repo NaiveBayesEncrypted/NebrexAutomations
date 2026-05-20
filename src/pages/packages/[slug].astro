@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CtaButton from "../../components/CtaButton.astro";
 import { packages } from "../../data/packages";
-import { canonical, faqSchema, graph, ogImage, organizationSchema, serviceSchema } from "../../data/seo";
+import { breadcrumbSchema, canonical, faqSchema, graph, ogImage, organizationSchema, serviceSchema, webPageSchema } from "../../data/seo";
 
 export function getStaticPaths() {
   return packages.map((pkg) => ({
@@ -27,7 +27,13 @@ const meta = {
   ogImage,
   jsonLd: graph([
     organizationSchema(),
+    webPageSchema(pkg.seoTitle || pkg.name, pkg.seoDescription || pkg.description, pageUrl),
     serviceSchema(pkg.name, pkg.seoDescription || pkg.description, pageUrl),
+    breadcrumbSchema([
+      { name: "Home", url: canonical("/") },
+      { name: "Pricing", url: canonical("/pricing.html") },
+      { name: pkg.name, url: pageUrl }
+    ]),
     ...(pageFaqs.length ? [faqSchema(pageFaqs)] : [])
   ])
 };

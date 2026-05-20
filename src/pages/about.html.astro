@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
-import { canonical, graph, ogImage, organizationSchema } from "../data/seo";
+import { aboutPageSchema, canonical, graph, ogImage, organizationSchema } from "../data/seo";
 
 const pageUrl = canonical("/about.html");
 
@@ -13,7 +13,10 @@ const meta = {
   ogDescription: "Nebrex builds practical website, lead capture, follow-up, and automation systems for Calgary small businesses.",
   ogUrl: pageUrl,
   ogImage,
-  jsonLd: graph([organizationSchema()])
+  jsonLd: graph([
+    organizationSchema(),
+    aboutPageSchema("About Nebrex", "Learn how Nebrex helps Calgary small businesses improve websites, lead response, follow-up, and simple automation with practical systems.", pageUrl)
+  ])
 };
 ---
 

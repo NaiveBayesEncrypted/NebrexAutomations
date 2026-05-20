@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CtaButton from "../../../components/CtaButton.astro";
-import { canonical, faqSchema, graph, ogImage, organizationSchema, serviceSchema, solutionPages } from "../../../data/seo";
+import { breadcrumbSchema, canonical, faqSchema, graph, ogImage, organizationSchema, serviceSchema, solutionPages, webPageSchema } from "../../../data/seo";
 
 export function getStaticPaths() {
   return solutionPages.map((page) => ({
@@ -24,7 +24,13 @@ const meta = {
   ogImage,
   jsonLd: graph([
     organizationSchema(),
+    webPageSchema(page.h1, page.description, pageUrl),
     serviceSchema(page.h1, page.description, pageUrl),
+    breadcrumbSchema([
+      { name: "Home", url: canonical("/") },
+      { name: "Solutions", url: canonical("/services.html") },
+      { name: page.h1, url: pageUrl }
+    ]),
     faqSchema(page.faqs)
   ])
 };

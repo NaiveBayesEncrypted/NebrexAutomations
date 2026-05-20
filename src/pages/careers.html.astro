@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { canonical, graph, ogImage, organizationSchema } from "../data/seo";
+import { canonical, graph, ogImage, organizationSchema, webPageSchema } from "../data/seo";
 
 const pageUrl = canonical("/careers.html");
 const careersEmail = "careers@nebrex.ca";
@@ -60,16 +60,6 @@ const jobPostingSchemas = [
       addressRegion: "AB",
       addressCountry: "CA"
     }
-  },
-  baseSalary: {
-    "@type": "MonetaryAmount",
-    currency: "CAD",
-    value: {
-      "@type": "QuantitativeValue",
-      minValue: 60000,
-      maxValue: 120000,
-      unitText: "YEAR"
-    }
   }
   },
   {
@@ -120,7 +110,11 @@ const meta = {
   ogDescription: "Join Nebrex and help local businesses adopt practical websites, lead capture, follow-up, ads, and AI automation systems.",
   ogUrl: pageUrl,
   ogImage,
-  jsonLd: graph([organizationSchema(), ...jobPostingSchemas])
+  jsonLd: graph([
+    organizationSchema(),
+    webPageSchema("Careers at Nebrex", "Nebrex is hiring for sales, technical implementation, and operations/admin roles supporting websites, ads, AI chat, AI receptionists, and automation systems.", pageUrl),
+    ...jobPostingSchemas
+  ])
 };
 ---
 

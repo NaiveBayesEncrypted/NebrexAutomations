@@ -2,8 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
 import PackageGrid from "../components/PackageGrid.astro";
-import { addOns } from "../data/packages";
-import { canonical, graph, ogImage, organizationSchema, serviceSchema } from "../data/seo";
+import { addOns, packages } from "../data/packages";
+import { canonical, graph, offerCatalogSchema, ogImage, organizationSchema, serviceSchema, webPageSchema } from "../data/seo";
 
 const pageUrl = canonical("/services.html");
 
@@ -17,7 +17,9 @@ const meta = {
   "ogImage": ogImage,
   "jsonLd": graph([
     organizationSchema(),
-    serviceSchema("Website and AI automation services for Calgary small businesses", "Outcome-based website, AI chat, lead capture, follow-up, and automation systems for Calgary small businesses.", pageUrl)
+    webPageSchema("Website & AI Automation Services for Calgary Businesses", "Outcome-based website, AI chat, lead capture, follow-up, and automation services for Calgary small businesses that need simpler systems.", pageUrl),
+    serviceSchema("Website and AI automation services for Calgary small businesses", "Outcome-based website, AI chat, lead capture, follow-up, and automation systems for Calgary small businesses.", pageUrl),
+    offerCatalogSchema("Nebrex service systems", "Outcome-based website, lead response, follow-up, Growth, and Partner systems for local businesses.", pageUrl, packages)
   ])
 };
 ---

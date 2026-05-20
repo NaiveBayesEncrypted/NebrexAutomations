@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaButton from "../components/CtaButton.astro";
 import PackageGrid from "../components/PackageGrid.astro";
 import { addOns, packages } from "../data/packages";
-import { faqSchema, graph, localBusinessSchema, ogImage, organizationSchema } from "../data/seo";
+import { faqSchema, graph, localBusinessSchema, ogImage, organizationSchema, webPageSchema, webSiteSchema } from "../data/seo";
 
 const growthPackage = packages.find((item) => item.slug === "growth");
 const heroPackages = growthPackage
@@ -39,7 +39,13 @@ const meta = {
   "ogDescription": "Simple growth systems for better websites, faster response, lead capture, follow-up, and customer communication.",
   "ogUrl": "https://nebrex.ca/",
   "ogImage": ogImage,
-  "jsonLd": graph([organizationSchema(), localBusinessSchema(), faqSchema(homeFaqs)])
+  "jsonLd": graph([
+    organizationSchema(),
+    localBusinessSchema(),
+    webSiteSchema(),
+    webPageSchema("Websites and AI Systems for Calgary Small Businesses", "Nebrex helps Calgary small businesses improve their website, respond faster, and follow up better without adding more manual work.", "https://nebrex.ca/"),
+    faqSchema(homeFaqs)
+  ])
 };
 ---
 

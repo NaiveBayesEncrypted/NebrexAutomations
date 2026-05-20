@@ -41,8 +41,7 @@ export function localBusinessSchema() {
       addressRegion: "AB",
       addressCountry: "CA"
     },
-    areaServed: ["Calgary", "Airdrie", "Cochrane", "Okotoks", "Chestermere", "Canada"],
-    sameAs: []
+    areaServed: ["Calgary", "Airdrie", "Cochrane", "Okotoks", "Chestermere", "Canada"]
   };
 }
 
@@ -53,7 +52,108 @@ export function serviceSchema(name: string, description: string, url: string, ar
     description,
     url,
     provider: { "@id": `${siteUrl}/#organization` },
-    areaServed
+    areaServed: typeof areaServed === "string" ? { "@type": "Place", name: areaServed } : areaServed
+  };
+}
+
+export function webSiteSchema() {
+  return {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    url: siteUrl,
+    name: "Nebrex Automations",
+    publisher: { "@id": `${siteUrl}/#organization` }
+  };
+}
+
+export function webPageSchema(name: string, description: string, url: string) {
+  return {
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    description,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    about: { "@id": `${siteUrl}/#organization` }
+  };
+}
+
+export function aboutPageSchema(name: string, description: string, url: string) {
+  return {
+    ...webPageSchema(name, description, url),
+    "@type": "AboutPage"
+  };
+}
+
+export function contactPageSchema(name: string, description: string, url: string) {
+  return {
+    ...webPageSchema(name, description, url),
+    "@type": "ContactPage"
+  };
+}
+
+export function contactPointSchema() {
+  return {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    telephone: "+14032200220",
+    email: brand.emailLabel,
+    areaServed: "CA",
+    availableLanguage: ["English"]
+  };
+}
+
+export function collectionPageSchema(name: string, description: string, url: string) {
+  return {
+    ...webPageSchema(name, description, url),
+    "@type": "CollectionPage"
+  };
+}
+
+export function breadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url
+    }))
+  };
+}
+
+export function offerCatalogSchema(name: string, description: string, url: string, offers: { name: string; description: string; href: string; price?: { setup?: string; monthly?: string } }[]) {
+  const priceValue = (value?: string) => value?.replace(/[^0-9.]/g, "") || "";
+
+  return {
+    "@type": "OfferCatalog",
+    name,
+    description,
+    url,
+    itemListElement: offers.map((offer) => ({
+      "@type": "Offer",
+      name: offer.name,
+      description: offer.description,
+      url: canonical(offer.href),
+      priceSpecification: [
+        priceValue(offer.price?.setup)
+          ? {
+              "@type": "UnitPriceSpecification",
+              name: "Setup",
+              priceCurrency: "CAD",
+              price: priceValue(offer.price?.setup)
+            }
+          : null,
+        priceValue(offer.price?.monthly)
+          ? {
+              "@type": "UnitPriceSpecification",
+              name: "Monthly support",
+              priceCurrency: "CAD",
+              price: priceValue(offer.price?.monthly)
+            }
+          : null
+      ].filter(Boolean)
+    }))
   };
 }
 

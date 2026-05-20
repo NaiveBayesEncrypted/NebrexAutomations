@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { canonical, graph, localBusinessSchema, ogImage, organizationSchema } from "../data/seo";
+import { canonical, contactPageSchema, contactPointSchema, graph, localBusinessSchema, ogImage, organizationSchema } from "../data/seo";
 
 const pageUrl = canonical("/contact.html");
 
@@ -12,7 +12,12 @@ const meta = {
   "ogDescription": "Talk to Nebrex about a simple growth system for your Calgary small business.",
   "ogUrl": pageUrl,
   "ogImage": ogImage,
-  "jsonLd": graph([organizationSchema(), localBusinessSchema()])
+  "jsonLd": graph([
+    organizationSchema(),
+    localBusinessSchema(),
+    contactPageSchema("Book a Call with Nebrex", "Book a call with Nebrex to choose the right website, lead response, follow-up, or growth system for your Calgary business.", pageUrl),
+    contactPointSchema()
+  ])
 };
 ---
 
