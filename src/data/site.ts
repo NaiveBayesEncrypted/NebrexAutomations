@@ -1,7 +1,7 @@
 export const brand = {
   name: "Nebrex Automations",
   logoWord: "NEBREX",
-  logoSub: "THE AI AUTOMATION COMPANY",
+  logoSub: "THE AI COMPANY",
   homeHref: "/",
   phoneHref: "tel:+14032200220",
   phoneLabel: "(403) 220-0220",

@@ -139,6 +139,14 @@ nav {
   text-decoration: none;
 }
 
+.logo-image {
+  display: block;
+  width: clamp(158px, 15vw, 190px);
+  height: auto;
+  max-height: 46px;
+  object-fit: contain;
+}
+
 .logo-mark {
   display: inline-flex;
   align-items: baseline;
@@ -1590,6 +1598,11 @@ footer {
   justify-content: flex-start;
 }
 
+.footer-logo .logo-image {
+  width: clamp(172px, 18vw, 205px);
+  max-height: 50px;
+}
+
 .footer-logo .logo-word {
   font-size: 14.7px;
 }
@@ -2088,6 +2101,8 @@ footer {
   h1 { font-size: 36px; }
   h2 { font-size: 28px; }
   .logo { gap: 12px; }
+  .logo-image { width: 152px; max-height: 38px; }
+  .footer-logo .logo-image { width: 180px; max-height: 44px; }
   .logo-mark .mark-n { font-size: 18px; }
   .logo-mark .mark-x { font-size: 24px; }
   .logo-word { font-size: 12px; }
