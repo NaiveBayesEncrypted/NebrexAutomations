@@ -7,6 +7,8 @@ export const brand = {
   phoneLabel: "(403) 220-0220",
   emailHref: "mailto:contact@nebrex.ca",
   emailLabel: "contact@nebrex.ca",
+  instagramHref: "https://www.instagram.com/nebrex.ai/",
+  linkedinHref: "https://www.linkedin.com/company/nebrex",
   siteUrl: "https://nebrex.ca",
   footerText: "© 2026 Nebrex Automations. Made in Calgary, Alberta.",
   ctaLabel: "Book a Call",

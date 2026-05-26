@@ -24,6 +24,8 @@ const contactLinks = [
   { label: "Book a Call", href: brand.ctaHref },
   { label: brand.emailLabel, href: brand.emailHref },
   { label: brand.phoneLabel, href: brand.phoneHref },
+  { label: "LinkedIn", href: brand.linkedinHref },
+  { label: "Instagram", href: brand.instagramHref },
   { label: "Privacy", href: "/privacy.html" },
   { label: "Terms", href: "/terms.html" }
 ];
@@ -41,6 +43,8 @@ const contactLinks = [
           <a href={brand.ctaHref} aria-label="Book a call">Book a Call</a>
           <a href={brand.emailHref} aria-label={"Email " + brand.emailLabel}>Email</a>
           <a href={brand.phoneHref} aria-label={"Call " + brand.phoneLabel}>Call</a>
+          <a href={brand.linkedinHref} aria-label="Nebrex LinkedIn">LinkedIn</a>
+          <a href={brand.instagramHref} aria-label="Nebrex Instagram">Instagram</a>
         </div>
       </div>
 
